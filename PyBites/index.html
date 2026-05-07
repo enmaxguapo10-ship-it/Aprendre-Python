@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <title>PyBites</title>
+</head>
+<body>
+
+    <!-- ══ HEADER ═══════════════════════════════════════════════ -->
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon">🐍</div>
+            <span class="logo-text">Py<span>Bites</span></span>
+        </a>
+
+        <nav>
+            <a href="#" class="active">Lecciones</a>
+            <a href="#">Práctica</a>
+            <a href="#">Ranking</a>
+            <a href="#">Perfil</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="xp-badge">⚡ 340 XP</div>
+            <div class="streak-badge">🔥 7</div>
+            <div class="avatar">😎</div>
+        </div>
+    </header>
+
+    <!-- ══ MAIN ══════════════════════════════════════════════════ -->
+    <main>
+        <div class="section-banner">
+            <div class="section-icon">🐍</div>
+            <div class="section-info">
+                <h2>Sección 1 — Fundamentos</h2>
+                <p>Variables, tipos de datos y funciones básicas</p>
+            </div>
+            <div class="section-progress">
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                1 / 8
+            </div>
+        </div>
+
+        <div id="lessons">
+            <svg id="hilo">
+                <path id="curva" fill="none" stroke="#feb4d4"
+                      stroke-width="5" stroke-dasharray="0 18" stroke-linecap="round"/>
+            </svg>
+
+            <a href="lessons/l1.html" class="cercle" id="c1"><div class="estrella"></div></a>
+            <a href="lessons/l2.html" class="cercle" id="c2"><div class="estrella"></div></a>
+            <a href="lessons/l3.html" class="cercle" id="c3"><div class="estrella"></div></a>
+            <a href="lessons/l4.html" class="cercle" id="c4"><div class="estrella"></div></a>
+            <a href="lessons/l5.html" class="cercle" id="c5"><div class="estrella"></div></a>
+            <a href="lessons/l6.html" class="cercle" id="c6"><div class="estrella"></div></a>
+            <a href="lessons/l7.html" class="cercle" id="c7"><div class="estrella"></div></a>
+            <a href="lessons/l8.html" class="cercle" id="c8"><div class="estrella"></div></a>
+        </div>
+    </main>
+
+    <!-- ══ FOOTER ════════════════════════════════════════════════ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">🐍</div>
+                    <span class="logo-text">Py<span>Bites</span></span>
+                </a>
+                <p>Aprende Python de forma progresiva, bite a bite. Gratis, divertido y adictivo.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Aprender</h4>
+                <ul>
+                    <li><a href="#">Lecciones</a></li>
+                    <li><a href="#">Retos diarios</a></li>
+                    <li><a href="#">Proyectos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Comunidad</h4>
+                <ul>
+                    <li><a href="#">Foro</a></li>
+                    <li><a href="#">Ranking global</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#">Sobre mi</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 PyBites. Todos los derechos reservados.</p>
+            <div class="footer-python">
+                Hecho con amor y Python
+                <div class="py-dot" style="background:#4b8bbe"></div>
+                <div class="py-dot" style="background:#ffd43b"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

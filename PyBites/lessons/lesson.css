@@ -1,0 +1,342 @@
+/* ═══════════════════════════════════════════════════════════
+   PyBites — lesson.css
+   Estilos específicos para las páginas de lección
+═══════════════════════════════════════════════════════════ */
+
+/* ── Layout ──────────────────────────────────────────────── */
+.lesson-main {
+    min-height: calc(100vh - 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* ── Barra de progreso en header ─────────────────────────── */
+.lesson-header-center {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    max-width: 30rem;
+    margin: 0 2rem;
+}
+
+.lesson-progress-bar {
+    flex: 1;
+    height: 0.6rem;
+    background: var(--bg3);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.lesson-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--pink), var(--pink-dark));
+    border-radius: 1rem;
+    transition: width 0.4s ease;
+}
+
+.lesson-progress-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* ── Tarjeta principal ───────────────────────────────────── */
+.lesson-card {
+    background: var(--bg2);
+    border: 2px solid var(--bg3);
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    max-width: 38rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    animation: fadeUp 0.35s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+    animation: fadeUp 0.35s ease;
+}
+
+.hidden { display: none !important; }
+
+/* ── Contenido de slides ─────────────────────────────────── */
+.card-emoji {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.card-heading {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.card-body {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    text-align: center;
+}
+
+.card-body strong { color: var(--pink-light); }
+
+.card-fact {
+    background: var(--bg3);
+    border-left: 3px solid var(--pink);
+    border-radius: 0.75rem;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.fact-label {
+    display: block;
+    font-weight: 700;
+    color: var(--pink-light);
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── Grid de usos ────────────────────────────────────────── */
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.use-case {
+    background: var(--bg3);
+    border-radius: 0.75rem;
+    padding: 0.75rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.use-case:hover { transform: scale(1.05); }
+
+.use-case span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+/* ── Botones ─────────────────────────────────────────────── */
+.btn-primary {
+    background: var(--pink);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.85rem 1.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 0 var(--pink-dark);
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.btn-primary:hover  { transform: translateY(-2px); box-shadow: 0 6px 0 var(--pink-dark); }
+.btn-primary:active { transform: translateY(2px);  box-shadow: 0 2px 0 var(--pink-dark); }
+
+.btn-secondary {
+    background: transparent;
+    color: var(--pink-light);
+    border: 2px solid var(--pink-light);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    width: 100%;
+}
+
+.btn-secondary:hover    { background: var(--pink); color: white; border-color: var(--pink); }
+.btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Preguntas de opción múltiple ────────────────────────── */
+.question-badge {
+    display: inline-block;
+    background: var(--bg3);
+    color: var(--pink-light);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.choice-btn {
+    background: var(--bg3);
+    color: var(--text);
+    border: 2px solid transparent;
+    border-radius: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.choice-btn:hover:not(:disabled) {
+    border-color: var(--pink-light);
+    background: var(--bg);
+}
+
+.choice-btn.correct {
+    border-color: #4ade80;
+    background: rgba(74, 222, 128, 0.12);
+    color: #4ade80;
+}
+
+.choice-btn.wrong {
+    border-color: #f87171;
+    background: rgba(248, 113, 113, 0.12);
+    color: #f87171;
+}
+
+/* ── Preguntas de arrastrar ──────────────────────────────── */
+.card-hint {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.drag-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 2rem;
+}
+
+#next-q2 {
+    position: relative;
+    z-index: 10;
+}
+
+.drag-item {
+    background: var(--bg3);
+    border: 2px solid var(--bg);
+    border-radius: 0.75rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    cursor: grab;
+    user-select: none;
+    transition: border-color 0.15s, opacity 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.drag-item::before {
+    content: '⠿';
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.drag-item:hover      { border-color: var(--pink-light); }
+.drag-item.dragging   { opacity: 0.4; cursor: grabbing; }
+
+.drag-item.drag-correct {
+    border-color: #4ade80;
+    background: rgba(74, 222, 128, 0.12);
+    color: #4ade80;
+    cursor: default;
+}
+
+.drag-item.drag-wrong {
+    border-color: #f87171;
+    background: rgba(248, 113, 113, 0.12);
+    color: #f87171;
+    cursor: default;
+}
+
+/* ── Feedback ────────────────────────────────────────────── */
+.feedback {
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.feedback-ok  { background: rgba(74, 222, 128, 0.15); color: #4ade80; border: 1.5px solid #4ade80; }
+.feedback-err { background: rgba(248, 113, 113, 0.15); color: #f87171; border: 1.5px solid #f87171; }
+
+/* ── Pantalla de resultados ──────────────────────────────── */
+.results-card {
+    text-align: center;
+    gap: 1rem;
+}
+
+.results-emoji {
+    font-size: 4rem;
+}
+
+.results-score {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.results-xp {
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 900;
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+}
+
+.results-explanation {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.results-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 0.5rem;
+}

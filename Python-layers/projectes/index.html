@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python - Projectes</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/python-logo.png">
+    <link rel="stylesheet" href="../css/temes.css">
+</head>
+<body>
+    <!-- Estimo molt el meu nen preciós. -->
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a class="brand" href="#">
+                <img src="../assets/img/python-logo.png" alt="Python Logo" class="logo" />
+                <span class="brand-title">Python</span>
+            </a>
+
+            <nav class="menu" aria-label="Navegació principal">
+                <a href="../index.html" data-title="Inici">Pàgina d'inici</a>
+                <a href="../temes/index.html" data-title="Temes">Temes</a>
+                <a href="../exercicis/index.html" data-title="Exercicis">Exercicis</a>
+                <a href="../projectes/index.html" data-title="Projectes">Projectes</a>
+                <a href="../quizzez/index.html" data-title="Quizzez">Quizzez</a>
+                <a href="../recursos/index.html" data-title="Recursos">Recursos</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div style="padding-bottom: 70px;"></div>
+        <section class="tema">
+            <div class="card">
+                <h2>Projecte: Simulador de Supermercat</h2>
+                <p>Crea un programa anomenat <code>supermercat.py</code></p>
+                <p>El programa haurà de fer el següent:</p>
+                <ol>
+                    <li>Saludar l'usuari</li>
+                    <ul>
+                        <li>Demanar el seu nom</li>
+                        <li>Mostrar un missatge de benvinguda amb el nom</li>
+                    </ul>
+                    <li>Demanar els preus</li>
+                    <ul>
+                        <li>Demanar el preu de 3 productes</li>
+                        <li>Guardar preus com a <code>float</code></li>
+                    </ul>
+                    <li>Calcular el total de la compra</li>
+                    <ul>
+                        <li>Calcular la suma dels 3 productes</li>
+                        <li>Mostrar el total de la compra</li>
+                    </ul>
+                    <li>Aplicar descomptes si cal</li>
+                    <p>Preguntar si és estudiant (sí/no)</p>
+                    <p>Aplica aquestes normes:</p>
+                    <ul>
+                        <li>Si el total és <strong>igual o superior a 50€</strong> → Aplicar un descompte del 10%</li>
+                        <li>Si és estudiant <strong>i</strong> el total és igual o superior a 20€ → aplicar un 15% de descompte</li>
+                        <li>En qualsevol altre cas, no hi ha descompte</li>
+                    </ul>
+                    <p>Només s'ha d'aplicar un descompte</p>
+                    <p>Mostrar quin descompte s'ha aplicat</p>
+                    <li>Mostrar el resultat final</li>
+                    <ul>
+                        <li>Mostrar el preu final</li>
+                        <li>Acomiadar a l'usuari amb el seu nom</li>
+                    </ul>
+                </ol>
+                <details>
+                    <summary class="pista">Pista</summary>
+                    <p>El programa ha de funcionar de la següent manera:</p>
+                    <div class="code-box">
+                        demanar nom <br>
+                        mostrar benvinguda <br>
+                        demanar preu producte 1 <br>
+                        demanar preu producte 2 <br>
+                        demanar preu producte 3 <br>
+                        calcular total <br>
+                        mostrar total <br>
+                        demanar si és estudiant <br>
+                        si total >= 50 → aplicar 10% descompte (if)<br>
+                        mostrar descompte aplicat <br>
+                        si és estudiant i total >= 20 → aplicar 15% descompte (elif) <br>
+                        mostrar descompte aplicat <br>
+                        si no → no aplicar descompte (else) <br>
+                        mostrar descompte aplicat ("No hi ha descompte.")<br>
+                        mostrar preu final <br>
+                        acomiadar usuari amb nom <br>
+
+                    </div>
+                </details>
+                <details>
+                    <summary class="pista">Pista 2</summary>
+                    <p>Exemple de sortida:</p>
+                    <div class="code-box">
+                        Quin és el teu nom? Josep <br>
+                        Hola Josep, benvingut al supermercat! <br>
+                        Introdueix el preu del primer producte: 10 <br>
+                        Introdueix el preu del segon producte: 12.5 <br>
+                        Introdueix el preu del tercer producte: 3 <br>
+                        El total de la compra és: 25.5€ <br>
+                        Ets estudiant? (si/no) si <br>
+                        Has obtingut un descompte del 15% per ser estudiant i gastar més de 20 euros. <br>
+                        El preu final és de 21.675€ <br>
+                        Gràcies per la teva compra, Josep! <br>
+                    </div>
+                </details>
+                <details>
+                    <summary class="pista">Resultat</summary>
+                    <br>
+                    <img src="../assets/img/projecte-1-res.png" alt="projecte supermercat resultat" style="width: 100%;">
+                </details>
+            </div>
+        </section>
+
+        <div style="padding-bottom: 70px;"></div>
+        <section class="tema">
+            <div class="card">
+                <h2>Projecte: Endevinar número</h2>
+                <p>Crea el fitxer, es dirà <code>endevinar.py</code></p>
+                <p>El joc d'endevinar el número va ser un dels primers jocs creats, i també serà un dels teus primers!</p>
+                <p>El joc consisteix en el següent:</p>
+                <ol>
+                    <li>Robot tria un número de l'1 al 100</li>
+                    <li>Usuari tria un número de l'1 al 100</li>
+                    <li>Si el número de l'usuari és més petit que el del robot, li diu que ha de ser més gran</li>
+                    <li>Si el número de l'usuari és més gran que el del robot, li diu que ha de ser més petit.</li>
+                    <li>Es repeteix fins a que l'usuari endevina el número</li>
+                    <li>Només es juga amb nombres enters positius.</li>
+                    <li>Intenta fer el programa una mica a proba derrors:
+                        <ul>
+                            <li>El número escollt per l'usuari ha de ser enter</li>
+                            <li>El número escollit per l'usuari ha de ser positiu</li>
+                            <li>El programa no pot petar si pasa alguna d'aquestes coses</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h2>Exemple de sortida:</h2>
+                <img src="../assets/img/projecte-2-output.py.png" alt="output2" style="width: 70%;">
+                <details>
+                    <summary class="pista">Pista</summary>
+                    <ul>
+                        <li>Recorda importar random amb <code>import random</code></li>
+                        <li>Utilitza un bucle i trenca'l al encertar amb <code>break</code></li>
+                        <li>Fes servir condicions (<code>if, elif, else</code>)</li>
+                        <li>Tria el número del bot FORA DEL BUCLE amb <code>numero_bot = random.randrange(1,100)</code></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary class="pista">Solució</summary>
+                    <img src="../assets/img/projecte-2-res.png" alt="projecte-2-res" style="width: 100%;">
+                </details>
+            </div>
+        </section>
+
+        <div style="padding-bottom: 70px;"></div>
+        <section class="tema">
+            <div class="card">
+                <h2>Projecte Final: La teva gran creació</h2>
+                <p>Si estàs llegint això… vol dir que ho has aconseguit.</p>
+                <p>Ja no ets només un alumne. Ara saps programar en Python.</p>
+                <p>Però abans d’acabar, tens una última missió:</p>
+                <p>Crear el teu propi projecte.</p>
+                <h3>Idees per inspirar-te:</h3>
+                <ul>
+                    <li> Un joc de text amb diferents camins i finals</li>
+                    <li> Un joc de preguntes amb puntuació</li>
+                    <li> Una eina útil (calculadora avançada, gestor de tasques...)</li>
+                    <li> Un simulador (batalles, daus, probabilitats...)</li>
+                    <li> Un petit sistema de notes o classificacions</li>
+                </ul>
+                <p>El límit no és el Python. El límit és la teva imaginació.</p>
+                <h3>Com a exemple començo jo.</h3>
+                <p>El meu projecte és un generador d'excuses.</p>
+                <p>La meva primera idea és que et doni a escullir i després monti l'excusa amb les paraules escollides.</p>
+                <ol>
+                    <li>Per començar el programa, importaré random, així puc afegir mecàniques interessants</li>
+                    <p><code>import random</code></p>
+                    <li>Ara crearé les llistes amb els subjectes, les accións...</li>
+                    <img src="../assets/img/projecte-final-1.png" alt="projecte-img-1" style="width: auto;">
+                    <li>Ara ja haig de començar a fer la lògica, ho faré amb funcións, primer la de mostrar les preguntes.</li>
+                    <p>Aquesta funció agafa les llistes, fa preguntes i retorna les respostes, intentaré fer-la compacte.</p>
+                    <img src="../assets/img/projecte-final-2.png" alt="projecte-img-2" style="width: auto;">
+                    <p>Aquesta funció agafa tots els strings de una llista les enumera com a opccions, afageix "Aleatori" al principi
+                        i després retorna la resposta si és un número enter i dintre dels paràmetres.
+                    </p>
+                    <li>La següent funció és per triar un element aleatori de la llista.</li>
+                    <img src="../assets/img/projecte-3-res.png" alt="projecte-img-3" style="width: auto;">
+                    <li>Ara toca que l'usuari pogui triar:</li>
+                    <img src="../assets/img/projecte-final-3.png" alt="projecte-img-3" style="width: auto;">
+                    <li>I per ara, l'última funció que falta és poder unir les teves eleccións.</li>
+                    <img src="../assets/img/projecte-final-4.png" alt="projecte-img-4" style="width: auto;">
+                    <li>Ara el programa ja té totes les funcións, però vaig a afegir un historial, per a això crearé una llista
+                        <code>historial = []</code> i faré <code>.append</code> cada cop que creo una excusa, també afagire la següent
+                        funció per poder-lo veure:
+                    </li>
+                    <img src="../assets/img/projecte-final-5png.png" alt="projecte-img-5" style="width: auto;">
+                    <li>Per últim he fet la funció del menú i el bucle principal del joc.</li>
+                    <img src="../assets/img/projecte-final-6.png" alt="projecte-img-6" style="width: auto;">
+                    <p>Es possible que el fitxer no es descarregui, però amb copiar i pegar tindreu la copia.</p>
+                    <a href="../projecte-final.py" download="projecte_final.py" type="application/octet-stream" id="nose">
+                        ⬇ Descarrega el projecte final
+                    </a>
+                </ol>
+                <p>Ara vosaltres! Feu el vostre projecte i passeu-mel <strong>al meu correu del cole.</strong></p>
+            </div>
+        </section>
+    </main>
+    <div style="padding-bottom: 70px;"></div>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>Curs de Python per a principiants. Tots els drets reservats.</p>
+        </div>
+    </footer>
+</body>
+<script>
+    const currentPath = location.pathname;
+
+    document.querySelectorAll(".menu a").forEach(link => {
+        const linkURL = new URL(link.href);
+        if (linkURL.pathname === currentPath) {
+            link.classList.add("active");
+        }
+    });
+</script>
+</html>

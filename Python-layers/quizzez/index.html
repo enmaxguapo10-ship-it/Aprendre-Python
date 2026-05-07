@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/temes.css" />
+  <link rel="icon" href="../assets/img/python-logo.png" type="image/png" />
+  <title>Python - Prova final (Quiz)</title>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/python-logo.png" alt="Python" class="logo" />
+        <span class="brand-title">Python</span>
+      </a>
+
+      <nav class="menu" aria-label="Navegació principal">
+        <a href="../index.html" data-title="Inici">Pàgina d'inici</a>
+        <a href="../temes/index.html" data-title="Temes">Temes</a>
+        <a href="../exercicis/index.html" data-title="Exercicis">Exercicis</a>
+        <a href="../projectes/index.html" data-title="Projectes">Projectes</a>
+        <a href="../quizzez/index.html" data-title="Quizzez">Quizzez</a>
+        <a href="../recursos/index.html" data-title="Recursos">Recursos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="quiz-wrap">
+      <div class="card quiz-hero hero">
+        <div class="hero-bg"></div>
+
+        <div class="row" style="justify-content:space-between; align-items:center;">
+          <div>
+            <div class="pill"><span class="dot"></span> Prova final</div>
+            <h1 class="quiz-title">Prova final de Python</h1>
+            <p class="quiz-sub">Avaluació de coneixements bàsics de programació en Python.</p>
+          </div>
+
+          <div class="hero-stats" style="justify-content:flex-end; margin-top:0;">
+            <div class="stat">
+              <div class="stat-k">Preguntes</div>
+              <div class="stat-v" id="statTotal">--</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">Aprovar</div>
+              <div class="stat-v">≥ 5/10</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">Intent</div>
+              <div class="stat-v" id="statTry">#1</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 14px;">
+          <div class="q-meta">
+            <div><span class="chip" id="topicChip">Tema: --</span></div>
+            <div><span class="chip" id="counterChip">Pregunta -- / --</span></div>
+          </div>
+          <div class="progress" aria-label="Progrés del qüestionari" style="margin-top:10px;">
+            <div id="progressBar"></div>
+          </div>
+
+          <div class="btnbar" style="margin-top:12px;">
+            <button class="btn primary" id="btnStart">Iniciar</button>
+            <button class="btn ghost" id="btnResume" style="display:none;">Continuar</button>
+            <button class="btn danger" id="btnReset" title="Esborra respostes i reinicia el qüestionari">Reiniciar</button>
+          </div>
+
+          <p class="hint" id="heroHint">
+            Recomanació: llegeix amb atenció i resol amb calma.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" id="quizCard" style="margin-top: 16px; display:none;">
+        <div class="q-meta">
+          <div><strong id="qTopic">Tema</strong> · <span id="qDifficulty" class="small">dificultat: --</span></div>
+          <div class="small">Punts: <strong id="qPoints">--</strong></div>
+        </div>
+
+        <h2 class="q-title" id="qTitle">Pregunta</h2>
+        <p class="q-text" id="qText">Text</p>
+
+        <pre class="code-box mono" id="qCode" style="display:none; white-space:pre-wrap;"></pre>
+
+        <fieldset class="choices" id="choices" aria-describedby="qHint">
+          <legend class="sr-only" id="qLegend">Opcions de resposta</legend>
+        </fieldset>
+
+        <div class="btnbar">
+          <button class="btn" id="btnPrev">← Anterior</button>
+          <button class="btn" id="btnSkip">Ometre</button>
+          <button class="btn primary" id="btnNext">Següent →</button>
+          <button class="btn primary" id="btnFinish" style="display:none;">Finalitzar</button>
+        </div>
+
+        <p class="hint small" id="qHint" style="display:none;"></p>
+      </div>
+
+      <div class="card" id="resultCard" style="margin-top: 16px; display:none;">
+        <h2 style="margin:0 0 6px; font-size: 26px; font-weight: 950;">Resultat</h2>
+        <p id="resultLine" style="margin: 0 0 12px;"></p>
+
+        <div class="row">
+          <div class="stat">
+            <div class="stat-k">Nota</div>
+            <div class="stat-v" id="gradeOut">--/10</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">Encerts</div>
+            <div class="stat-v" id="hitsOut">--</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">Punts</div>
+            <div class="stat-v" id="pointsOut">--</div>
+          </div>
+        </div>
+
+        <div class="btnbar" style="margin-top: 12px;">
+          <button class="btn primary" id="btnReview">Veure correcció</button>
+          <button class="btn" id="btnRetry">Repetir prova</button>
+        </div>
+
+        <div id="reviewBlock" style="display:none;">
+          <h3 style="margin-top: 16px; margin-bottom: 8px;">Correcció</h3>
+          <div class="review" id="reviewList"></div>
+          <p class="hint small">
+            Recomanació: revisa els temes amb més errors, practica amb exercicis curts i torna a intentar-ho.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div style="padding-bottom: 70px;"></div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Curs de Python per a principiants. Tots els drets reservats.</p>
+    </div>
+  </footer>
+
+  <script>
+    const currentPath = location.pathname;
+    document.querySelectorAll(".menu a").forEach(link => {
+      const linkURL = new URL(link.href);
+      if (linkURL.pathname === currentPath) link.classList.add("active");
+    });
+
+    const QUESTIONS = [
+      { topic:"0 · Introducció", type:"mcq", diff:"Fàcil", points:1,
+        title:"Què és Python?",
+        text:"Quina definició és més precisa?",
+        choices:[
+          "Un llenguatge de programació interpretat, llegible i d’ús general.",
+          "Un joc per escriure codi que només funciona amb internet.",
+          "Un sistema operatiu com Windows o Linux.",
+          "Una base de dades per guardar fitxers .py."
+        ],
+        answer:0,
+        hint:"Python és un llenguatge de programació."
+      },
+      { topic:"0 · Introducció", type:"mcq", diff:"Fàcil", points:1,
+        title:"Executar un fitxer .py",
+        text:"Tria l’opció més habitual.",
+        choices:[
+          "Obrir la terminal i executar: python fitxer.py (o python3 fitxer.py).",
+          "Canviar l’extensió .py a .png i obrir-lo.",
+          "Copiar el codi a un document i imprimir-lo.",
+          "Enviar-ho a una altra persona perquè l’executi."
+        ],
+        answer:0,
+        hint:"La terminal és un mètode universal."
+      },
+      { topic:"0 · Introducció", type:"tf", diff:"Fàcil", points:1,
+        title:"Errors",
+        text:"Un error vol dir que s’ha fet malbé l’ordinador.",
+        choices:["Vertader","Fals"],
+        answer:1,
+        hint:"Un error indica què cal corregir."
+      },
+
+      { topic:"1 · Entrada i sortida", type:"mcq", diff:"Fàcil", points:1,
+        title:"print()",
+        text:"Què fa print()?",
+        choices:[
+          "Mostra informació per pantalla.",
+          "Llegeix el teclat de l’usuari.",
+          "Guarda variables automàticament.",
+          "Esborra el programa."
+        ],
+        answer:0
+      },
+      { topic:"1 · Entrada i sortida", type:"mcq", diff:"Fàcil", points:1,
+        title:"input()",
+        text:"Què retorna input()?",
+        choices:[
+          "Sempre un número (int).",
+          "Sempre un booleà (True/False).",
+          "Un text (str) amb el que escriu l’usuari.",
+          "No retorna res."
+        ],
+        answer:2,
+        hint:"Si cal un número: int(input())."
+      },
+      { topic:"1 · Entrada i sortida", type:"mcq", diff:"Fàcil", points:1,
+        title:"Desar una entrada",
+        text:"Quina línia desa el nom que escriu l’usuari?",
+        choices:[
+          "input = nom",
+          "nom = input(\"Com et dius? \")",
+          "print(nom) = input()",
+          "nom == input()"
+        ],
+        answer:1
+      },
+
+      { topic:"2 · Variables", type:"mcq", diff:"Fàcil", points:1,
+        title:"Variable",
+        text:"Quina metàfora descriu millor una variable?",
+        choices:[
+          "Una caixa amb etiqueta que conté un valor.",
+          "Una impressora.",
+          "Un error controlat.",
+          "Un tipus de bucle."
+        ],
+        answer:0
+      },
+      { topic:"2 · Variables", type:"mcq", diff:"Mitjana", points:2,
+        title:"Tipus bàsics",
+        text:"Quin d’aquests és un bool?",
+        choices:[
+          "\"True\"",
+          "True",
+          "1.0",
+          "\"false\""
+        ],
+        answer:1,
+        hint:"Sense cometes: True/False són booleans."
+      },
+      { topic:"2 · Variables", type:"mcq", diff:"Mitjana", points:2,
+        title:"type()",
+        text:"Què imprimirà aquest codi?",
+        code:"x = 3\nprint(type(x))",
+        choices:[
+          "<class 'str'>",
+          "<class 'int'>",
+          "<type 'int'>",
+          "3"
+        ],
+        answer:1
+      },
+
+      { topic:"3 · Operacions i conversions", type:"mcq", diff:"Mitjana", points:2,
+        title:"Operadors",
+        text:"Quin operador retorna el residu d’una divisió?",
+        choices:["/","//","%","**"],
+        answer:2
+      },
+      { topic:"3 · Operacions i conversions", type:"mcq", diff:"Mitjana", points:2,
+        title:"Divisió entera",
+        text:"Quin és el resultat de 7 // 2?",
+        choices:["3","3.5","4","Error"],
+        answer:0
+      },
+      { topic:"3 · Operacions i conversions", type:"mcq", diff:"Mitjana", points:2,
+        title:"Conversió de text a enter",
+        text:"Si s = \"12\" i vols el número 12, què fas?",
+        choices:[
+          "float(s) sempre.",
+          "int(s)",
+          "type(s)",
+          "str(s)"
+        ],
+        answer:1
+      },
+
+      { topic:"4 · Condicionals", type:"tf", diff:"Fàcil", points:1,
+        title:"Comparació",
+        text:"En Python, == comprova si dos valors són iguals.",
+        choices:["Vertader","Fals"],
+        answer:0
+      },
+      { topic:"4 · Condicionals", type:"mcq", diff:"Mitjana", points:2,
+        title:"if / else",
+        text:"Quina estructura és correcta?",
+        choices:[
+          "if x > 0 { print('ok') }",
+          "if x > 0: print('ok') else: print(no)",
+          "if x > 0: print('ok') else: print('no')",
+          "if (x > 0) then print('ok')"
+        ],
+        answer:2,
+        hint:"En Python: dos punts i indentació."
+      },
+      { topic:"4 · Condicionals", type:"mcq", diff:"Mitjana", points:2,
+        title:"Operadors lògics",
+        text:"Quina expressió significa: “x és entre 1 i 10 (inclòs)”?",
+        choices:[
+          "x == 1 or 10",
+          "1 <= x <= 10",
+          "x >= 1 or x <= 10",
+          "x > 1 and x < 10 (inclòs)"
+        ],
+        answer:1
+      },
+
+      { topic:"5 · while", type:"mcq", diff:"Mitjana", points:2,
+        title:"Bucle infinit",
+        text:"Què fa que un while sigui infinit habitualment?",
+        choices:[
+          "Que no hi hagi print() dins.",
+          "Que la condició sempre sigui True i no canviï.",
+          "Que hi hagi input().",
+          "Que hi hagi un break sempre."
+        ],
+        answer:1
+      },
+      { topic:"5 · while", type:"mcq", diff:"Mitjana", points:2,
+        title:"break",
+        text:"Què fa break dins un bucle?",
+        choices:[
+          "Salta a la següent iteració.",
+          "Surt del bucle immediatament.",
+          "Atura el programa definitivament.",
+          "Converteix un int a float."
+        ],
+        answer:1
+      },
+
+      { topic:"6 · for", type:"mcq", diff:"Mitjana", points:2,
+        title:"range()",
+        text:"Quants valors genera range(5)?",
+        choices:["5 (0..4)","4 (1..4)","6 (0..5)","Depèn de l’entorn"],
+        answer:0
+      },
+      { topic:"6 · for", type:"mcq", diff:"Mitjana", points:2,
+        title:"Recorregut",
+        text:"Quin codi imprimeix 0, 1, 2?",
+        choices:[
+          "for i in range(3): print(i)",
+          "for i in range(1,3): print(i)",
+          "for i in range(0,2): print(i)",
+          "for i in 3: print(i)"
+        ],
+        answer:0
+      },
+
+      { topic:"7 · random", type:"mcq", diff:"Mitjana", points:2,
+        title:"Importar random",
+        text:"Quina línia és correcta?",
+        choices:[
+          "import randint",
+          "from random import python",
+          "import random",
+          "random import"
+        ],
+        answer:2
+      },
+      { topic:"7 · random", type:"mcq", diff:"Mitjana", points:2,
+        title:"randint()",
+        text:"random.randint(1,6) pot retornar…",
+        choices:[
+          "Només 1 a 5",
+          "1 a 6 (inclòs)",
+          "0 a 6",
+          "Només 2, 4, 6"
+        ],
+        answer:1,
+        hint:"randint(a,b) inclou a i b."
+      },
+
+      { topic:"8 · Llistes", type:"mcq", diff:"Mitjana", points:2,
+        title:"Llista buida",
+        text:"Com es crea una llista buida?",
+        choices:[
+          "{}",
+          "[]",
+          "()",
+          "list = 0"
+        ],
+        answer:1
+      },
+      { topic:"8 · Llistes", type:"mcq", diff:"Mitjana", points:2,
+        title:"append()",
+        text:"Quina línia afegeix \"espasa\" a inventari?",
+        choices:[
+          "inventari.add('espasa')",
+          "inventari.append('espasa')",
+          "inventari.push('espasa')",
+          "inventari.insert()"
+        ],
+        answer:1
+      },
+      { topic:"8 · Llistes", type:"mcq", diff:"Difícil", points:3,
+        title:"Índex",
+        text:"Si llista = ['a','b','c'], què és llista[0]?",
+        choices:["'a'","'b'","'c'","Error"],
+        answer:0,
+        hint:"L’índex del primer element és 0."
+      },
+
+      { topic:"9 · Funcions", type:"mcq", diff:"Mitjana", points:2,
+        title:"Definir una funció",
+        text:"Com es defineix una funció?",
+        choices:[
+          "function saludar():",
+          "def saludar():",
+          "def saludar[]:",
+          "saludar def():"
+        ],
+        answer:1
+      },
+      { topic:"9 · Funcions", type:"mcq", diff:"Difícil", points:3,
+        title:"print vs return",
+        text:"Quina diferència hi ha entre print i return?",
+        choices:[
+          "Cap: són equivalents.",
+          "print mostra; return retorna un valor fora de la funció.",
+          "return només s’utilitza en bucles.",
+          "print només existeix a Windows."
+        ],
+        answer:1
+      },
+
+      { topic:"10 · Strings", type:"mcq", diff:"Mitjana", points:2,
+        title:"Normalització d’entrada",
+        text:"Per comparar una resposta sense errors d’espais/majúscules, què faries?",
+        choices:[
+          "resp = input().lower().strip()",
+          "resp = input().upper().append()",
+          "resp = print(input())",
+          "resp = input().int()"
+        ],
+        answer:0
+      },
+      { topic:"10 · Strings", type:"mcq", diff:"Difícil", points:3,
+        title:"f-strings",
+        text:"Quina opció és una f-string correcta?",
+        choices:[
+          "print(f\"Hola {nom}\")",
+          "print(\"Hola {nom}\")",
+          "print(f'Hola ' + {nom})",
+          "print('f Hola {nom}')"
+        ],
+        answer:0
+      },
+      { topic:"10 · Strings", type:"tf", diff:"Mitjana", points:2,
+        title:"Operador in",
+        text:"'a' in 'casa' és True.",
+        choices:["Vertader","Fals"],
+        answer:0
+      },
+
+      { topic:"11 · Errors i depuració", type:"mcq", diff:"Mitjana", points:2,
+        title:"Llegir errors",
+        text:"Quan surt un error, el primer pas recomanat és…",
+        choices:[
+          "Reiniciar l’ordinador immediatament.",
+          "Llegir la darrera línia del missatge d’error i revisar la línia de codi indicada.",
+          "Esborrar el fitxer i començar de zero.",
+          "Ignorar l’error i continuar."
+        ],
+        answer:1
+      },
+      { topic:"11 · Errors i depuració", type:"mcq", diff:"Difícil", points:3,
+        title:"Depuració amb print",
+        text:"Per entendre què passa, una tècnica útil és…",
+        choices:[
+          "Afegir print() temporals per veure valors i el flux del programa.",
+          "No fer canvis i esperar que funcioni.",
+          "Canviar totes les variables a X.",
+          "Eliminar els dos punts dels condicionals."
+        ],
+        answer:0
+      },
+
+      { topic:"12 · Menús", type:"mcq", diff:"Difícil", points:3,
+        title:"Patró de menú",
+        text:"Quin patró és habitual per un menú que es repeteix fins sortir?",
+        choices:[
+          "if True: menu()",
+          "while True: ... i break quan l’opció sigui “sortir”",
+          "for True in menu:",
+          "def menu: while end"
+        ],
+        answer:1
+      },
+      { topic:"12 · Menús", type:"mcq", diff:"Difícil", points:3,
+        title:"Sortida del menú",
+        text:"Si l’usuari tria “0 = sortir”, què es fa habitualment?",
+        choices:[
+          "break (per sortir del bucle del menú)",
+          "continue (per sortir del programa)",
+          "return False (fora d’una funció)",
+          "print('Sortit') i continuar el bucle"
+        ],
+        answer:0
+      },
+
+      { topic:"Bonus · Mix", type:"mcq", diff:"Difícil", points:4,
+        title:"Mini-codi",
+        text:"Què imprimeix aquest codi?",
+        code:"x = '3'\ny = 2\nprint(x * y)",
+        choices:[
+          "5",
+          "6",
+          "'33'",
+          "Error"
+        ],
+        answer:2,
+        hint:"Multiplicar un string per un int repeteix el text."
+      }
+    ];
+
+    const LS_KEY = "python_quiz_final_v2";
+
+    const state = {
+      idx: 0,
+      answers: Array(QUESTIONS.length).fill(null),
+      started: false,
+      tries: 1
+    };
+
+    const statTotal = document.getElementById("statTotal");
+    const statTry = document.getElementById("statTry");
+    const topicChip = document.getElementById("topicChip");
+    const counterChip = document.getElementById("counterChip");
+    const progressBar = document.getElementById("progressBar");
+
+    const btnStart = document.getElementById("btnStart");
+    const btnResume = document.getElementById("btnResume");
+    const btnReset = document.getElementById("btnReset");
+
+    const quizCard = document.getElementById("quizCard");
+    const resultCard = document.getElementById("resultCard");
+
+    const qTopic = document.getElementById("qTopic");
+    const qDifficulty = document.getElementById("qDifficulty");
+    const qPoints = document.getElementById("qPoints");
+    const qTitle = document.getElementById("qTitle");
+    const qText = document.getElementById("qText");
+    const qCode = document.getElementById("qCode");
+    const qHint = document.getElementById("qHint");
+    const qLegend = document.getElementById("qLegend");
+    const choicesEl = document.getElementById("choices");
+
+    const btnPrev = document.getElementById("btnPrev");
+    const btnSkip = document.getElementById("btnSkip");
+    const btnNext = document.getElementById("btnNext");
+    const btnFinish = document.getElementById("btnFinish");
+
+    const resultLine = document.getElementById("resultLine");
+    const gradeOut = document.getElementById("gradeOut");
+    const hitsOut = document.getElementById("hitsOut");
+    const pointsOut = document.getElementById("pointsOut");
+    const btnReview = document.getElementById("btnReview");
+    const btnRetry = document.getElementById("btnRetry");
+    const reviewBlock = document.getElementById("reviewBlock");
+    const reviewList = document.getElementById("reviewList");
+
+    statTotal.textContent = QUESTIONS.length;
+
+    function save() {
+      localStorage.setItem(LS_KEY, JSON.stringify(state));
+    }
+
+    function sanitizeLoadedAnswers(answers) {
+      const safe = Array(QUESTIONS.length).fill(null);
+      if (!Array.isArray(answers) || answers.length !== QUESTIONS.length) return safe;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const a = answers[i];
+        if (a === null) {
+          safe[i] = null;
+          continue;
+        }
+        if (Number.isInteger(a) && a >= 0 && a < QUESTIONS[i].choices.length) {
+          safe[i] = a;
+          continue;
+        }
+        safe[i] = null;
+      }
+      return safe;
+    }
+
+    function load() {
+      try {
+        const raw = localStorage.getItem(LS_KEY);
+        if (!raw) return false;
+        const obj = JSON.parse(raw);
+        if (!obj) return false;
+
+        const idx = Number.isInteger(obj.idx) ? obj.idx : 0;
+        state.idx = Math.max(0, Math.min(QUESTIONS.length - 1, idx));
+        state.answers = sanitizeLoadedAnswers(obj.answers);
+        state.started = !!obj.started;
+
+        const tries = Number.isInteger(obj.tries) ? obj.tries : 1;
+        state.tries = Math.max(1, tries);
+
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function reset(all = true) {
+      state.idx = 0;
+      state.answers = Array(QUESTIONS.length).fill(null);
+      state.started = false;
+      if (all) state.tries = 1;
+      save();
+      showHero();
+    }
+
+    function updateTopChips() {
+      const q = QUESTIONS[state.idx];
+      topicChip.textContent = "Tema: " + (q?.topic ?? "--");
+      counterChip.textContent = `Pregunta ${state.idx + 1} / ${QUESTIONS.length}`;
+      const pct = Math.round(((state.idx + 1) / QUESTIONS.length) * 100);
+      progressBar.style.width = (isFinite(pct) ? pct : 0) + "%";
+    }
+
+    function showHero() {
+      quizCard.style.display = "none";
+      resultCard.style.display = "none";
+      statTry.textContent = "#" + state.tries;
+      updateTopChips();
+      btnStart.style.display = state.started ? "none" : "inline-flex";
+      btnResume.style.display = state.started ? "inline-flex" : "none";
+    }
+
+    function setChoiceLine(containerDiv, index, label) {
+      const strong = document.createElement("strong");
+      strong.textContent = `${String.fromCharCode(65 + index)}.`;
+      const textNode = document.createTextNode(" " + label);
+      containerDiv.appendChild(strong);
+      containerDiv.appendChild(textNode);
+    }
+
+    function renderQuestion() {
+      const q = QUESTIONS[state.idx];
+      if (!q) return;
+
+      updateTopChips();
+
+      qTopic.textContent = q.topic;
+      qDifficulty.textContent = "dificultat: " + q.diff;
+      qPoints.textContent = String(q.points);
+
+      qTitle.textContent = q.title;
+      qText.textContent = q.text;
+
+      qLegend.textContent = `Opcions de resposta: ${q.title}`;
+
+      if (q.code) {
+        qCode.style.display = "block";
+        qCode.textContent = q.code;
+      } else {
+        qCode.style.display = "none";
+        qCode.textContent = "";
+      }
+
+      if (q.hint) {
+        qHint.style.display = "block";
+        qHint.textContent = "Pista: " + q.hint;
+      } else {
+        qHint.style.display = "none";
+        qHint.textContent = "";
+      }
+
+      while (choicesEl.firstChild) choicesEl.removeChild(choicesEl.firstChild);
+
+      const savedAns = state.answers[state.idx];
+
+      q.choices.forEach((label, i) => {
+        const id = `q${state.idx}_c${i}`;
+
+        const wrap = document.createElement("label");
+        wrap.className = "choice";
+        wrap.setAttribute("for", id);
+
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = `choice_${state.idx}`;
+        input.id = id;
+        input.value = String(i);
+        input.checked = (savedAns === i);
+
+        input.addEventListener("change", () => {
+          state.answers[state.idx] = i;
+          save();
+        });
+
+        const text = document.createElement("div");
+        setChoiceLine(text, i, label);
+
+        wrap.appendChild(input);
+        wrap.appendChild(text);
+        choicesEl.appendChild(wrap);
+      });
+
+      btnPrev.disabled = (state.idx === 0);
+      btnNext.style.display = (state.idx === QUESTIONS.length - 1) ? "none" : "inline-flex";
+      btnFinish.style.display = (state.idx === QUESTIONS.length - 1) ? "inline-flex" : "none";
+    }
+
+    function startQuiz() {
+      state.started = true;
+      save();
+      resultCard.style.display = "none";
+      quizCard.style.display = "block";
+      renderQuestion();
+      btnStart.style.display = "none";
+      btnResume.style.display = "inline-flex";
+    }
+
+    function next() {
+      if (state.idx < QUESTIONS.length - 1) {
+        state.idx++;
+        save();
+        renderQuestion();
+      }
+    }
+
+    function prev() {
+      if (state.idx > 0) {
+        state.idx--;
+        save();
+        renderQuestion();
+      }
+    }
+
+    function skip() {
+      if (state.idx < QUESTIONS.length - 1) next();
+    }
+
+    function computeScore() {
+      let pointsPossible = 0;
+      let pointsGot = 0;
+      let hits = 0;
+      let answered = 0;
+
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        pointsPossible += q.points;
+        const a = state.answers[i];
+        if (a !== null) answered++;
+        if (a === q.answer) {
+          pointsGot += q.points;
+          hits++;
+        }
+      }
+
+      const grade = pointsPossible ? (pointsGot / pointsPossible) * 10 : 0;
+      const grade1 = Math.round(grade * 10) / 10;
+
+      return { pointsPossible, pointsGot, grade: grade1, hits, answered };
+    }
+
+    function finish() {
+      const s = computeScore();
+
+      quizCard.style.display = "none";
+      resultCard.style.display = "block";
+
+      gradeOut.textContent = `${s.grade}/10`;
+      hitsOut.textContent = `${s.hits}/${QUESTIONS.length}`;
+      pointsOut.textContent = `${s.pointsGot}/${s.pointsPossible}`;
+
+      const pass = s.grade >= 5;
+      let msg = "Resultat registrat.";
+      if (s.grade >= 9.5) msg = "Excel·lent. Domini molt alt dels conceptes avaluats.";
+      else if (s.grade >= 8) msg = "Molt bon resultat. Base sòlida.";
+      else if (s.grade >= 6.5) msg = "Bon resultat. Recomanable reforçar alguns punts.";
+      else if (pass) msg = "Aprovat. Continua practicant per consolidar conceptes.";
+      else msg = "No assolit. Revisa els temes principals i torna-ho a intentar.";
+
+      const answeredMsg = (s.answered < QUESTIONS.length)
+        ? ` Has respost ${s.answered}/${QUESTIONS.length}. Les no contestades puntuen 0.`
+        : "";
+
+      resultLine.textContent = `${pass ? "✅" : "❌"} ${msg}${answeredMsg}`;
+
+      reviewBlock.style.display = "none";
+      reviewList.innerHTML = "";
+      progressBar.style.width = "100%";
+      save();
+    }
+
+    function makeReviewItem(q, index) {
+      const userA = state.answers[index];
+      const ok = (userA === q.answer);
+
+      const item = document.createElement("div");
+      item.className = "review-item " + (ok ? "ok" : "bad");
+
+      const meta = document.createElement("div");
+      meta.className = "small";
+      meta.textContent = `${q.topic} · ${q.diff} · ${q.points} punts`;
+
+      const title = document.createElement("div");
+      title.style.marginTop = "6px";
+      const titleStrong = document.createElement("strong");
+      titleStrong.textContent = `${index + 1}.`;
+      title.appendChild(titleStrong);
+      title.appendChild(document.createTextNode(" " + q.title));
+
+      const text = document.createElement("div");
+      text.className = "small";
+      text.style.marginTop = "6px";
+      text.textContent = q.text;
+
+      item.appendChild(meta);
+      item.appendChild(title);
+      item.appendChild(text);
+
+      if (q.code) {
+        const pre = document.createElement("pre");
+        pre.className = "code-box mono";
+        pre.style.marginTop = "10px";
+        pre.style.whiteSpace = "pre-wrap";
+        pre.textContent = q.code;
+        item.appendChild(pre);
+      }
+
+      const block = document.createElement("div");
+      block.style.marginTop = "10px";
+
+      const yourLine = document.createElement("div");
+      yourLine.className = "small";
+      const yourPrefix = document.createElement("span");
+      yourPrefix.textContent = "La teva resposta: ";
+      yourLine.appendChild(yourPrefix);
+
+      if (userA === null) {
+        const em = document.createElement("em");
+        em.textContent = "No contestada";
+        yourLine.appendChild(em);
+      } else {
+        const yourStrong = document.createElement("strong");
+        yourStrong.textContent = `${String.fromCharCode(65 + userA)}.`;
+        yourLine.appendChild(yourStrong);
+        yourLine.appendChild(document.createTextNode(" " + q.choices[userA]));
+      }
+
+      const corrLine = document.createElement("div");
+      corrLine.className = "small";
+      const corrPrefix = document.createElement("span");
+      corrPrefix.textContent = "Correcta: ";
+      corrLine.appendChild(corrPrefix);
+
+      const corrStrong = document.createElement("strong");
+      corrStrong.textContent = `${String.fromCharCode(65 + q.answer)}.`;
+      corrLine.appendChild(corrStrong);
+      corrLine.appendChild(document.createTextNode(" " + q.choices[q.answer]));
+
+      block.appendChild(yourLine);
+      block.appendChild(corrLine);
+
+      if (!ok && q.hint) {
+        const hint = document.createElement("div");
+        hint.className = "hint small";
+        hint.style.marginTop = "10px";
+        hint.textContent = "Pista: " + q.hint;
+        block.appendChild(hint);
+      }
+
+      item.appendChild(block);
+      return item;
+    }
+
+    function makeReview() {
+      reviewList.innerHTML = "";
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        reviewList.appendChild(makeReviewItem(QUESTIONS[i], i));
+      }
+    }
+
+    function retry() {
+      state.tries += 1;
+      state.idx = 0;
+      state.answers = Array(QUESTIONS.length).fill(null);
+      state.started = true;
+      save();
+      showHero();
+      startQuiz();
+    }
+
+    btnStart.addEventListener("click", startQuiz);
+    btnResume.addEventListener("click", startQuiz);
+    btnReset.addEventListener("click", () => reset(true));
+
+    btnPrev.addEventListener("click", prev);
+    btnNext.addEventListener("click", next);
+    btnSkip.addEventListener("click", skip);
+    btnFinish.addEventListener("click", finish);
+
+    btnReview.addEventListener("click", () => {
+      if (reviewBlock.style.display === "none") {
+        makeReview();
+        reviewBlock.style.display = "block";
+        btnReview.textContent = "Amagar correcció";
+      } else {
+        reviewBlock.style.display = "none";
+        btnReview.textContent = "Veure correcció";
+      }
+    });
+
+    btnRetry.addEventListener("click", retry);
+
+    const had = load();
+    showHero();
+
+    if (had && state.started) {
+      btnStart.style.display = "none";
+      btnResume.style.display = "inline-flex";
+    }
+
+    updateTopChips();
+
+    document.addEventListener("keydown", (e) => {
+      if (quizCard.style.display === "none") return;
+      if (e.key !== "Enter") return;
+
+      const el = document.activeElement;
+      const tag = el && el.tagName ? el.tagName.toUpperCase() : "";
+      const interactive = ["INPUT", "BUTTON", "A", "TEXTAREA", "SELECT", "OPTION"].includes(tag);
+      if (interactive) return;
+
+      e.preventDefault();
+      if (state.idx === QUESTIONS.length - 1) finish();
+      else next();
+    });
+  </script>
+</body>
+</html>

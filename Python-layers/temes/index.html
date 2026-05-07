@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/temes.css">
+    <link rel="icon" href="../assets/img/python-logo.png" type="image/png" />
+    <title>Python - Temes</title>
+</head>
+<body>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a class="brand" href="#">
+                <img src="../assets/img/python-logo.png" alt="Python Logo" class="logo" />
+                <span class="brand-title">Python</span>
+            </a>
+
+            <nav class="menu" aria-label="Navegació principal">
+                <a href="../index.html" data-title="Inici">Pàgina d'inici</a>
+                <a href="../temes/index.html" data-title="Temes">Temes</a>
+                <a href="../exercicis/index.html" data-title="Exercicis">Exercicis</a>
+                <a href="../projectes/index.html" data-title="Projectes">Projectes</a>
+                <a href="../quizzez/index.html" data-title="Quizzez">Quizzez</a>
+                <a href="../recursos/index.html" data-title="Recursos">Recursos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <div style="padding-bottom: 70px;"></div>
+
+        <section class="tema">
+            <h1>Índex</h1>
+            <div class="card" id="index">
+               <ol>
+                    <li><a href="#abans-de-començar">Abans de començar</a></li>
+                    <li><a href="#parlar-amb-el-programa">Parlar amb el programa</a></li>
+                    <li><a href="#variables">Variables</a></li>
+                    <li><a href="#operacions">Operacions</a></li>
+                    <li><a href="#condicions">Condicions</a></li>
+                    <li><a href="#bucles">Bucles</a></li>
+                    <li><a href="#bucles-control">Repetir amb control</a></li>
+                    <li><a href="#Aleatorietat">Aleatorietat</a></li>
+                    <li><a href="#llistes">Llistes</a></li>
+                    <li><a href="#funcions">Funcions</a></li>
+                    <li><a href="#texts-intelligents">Texts intel·ligents</a></li>
+                    <li><a href="#errors">Error i debug</a></li>
+                    <li><a href="#Menús">Menús i programa complet</a></li>
+               </ol>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="abans-de-començar">Abans de començar</h1>
+            <div class="card">
+                <h2>Què és python?</h2>
+                <p>Python és un llenguatge de programació utilitzat en bases de dades, intelingències artificials, algoritmes, eines...</p>
+                <h3>Alguns cassos coneguts amb Python són:</h3>
+                <ul>
+                    <li>Algoritme de recomenació de Netflix</li>
+                    <li>Part de la base de dades de Amazon</li>
+                    <li>Llenguatge principal de ChatGPT</li>
+                </ul>
+                <br>
+                <div>
+                    <h2>Com puc executar un fitxer .py?</h2>
+                    <p>Si tens Python instalat, pots fer doble click damunt del fitxer per executar-lo, però si ho fas des de Visual Studio Code (VSCode), pots simplement fer clic damunt de l'icona de play com es mostra a la imatge:</p>
+                    <img src="../assets/img/python-executar.png" alt="executar Python" id="executar-python">
+                </div>
+                <br>
+                <h2>Errors normals</h2>
+                <p>Un error comú és escriure malament el nom d'una variable o funció. Per exemple, escriure <code>prin</code> en lloc de <code>print</code> o 
+                    <code>print(Hola)</code> en lloc de <code>print("Hola")</code>. També pots trobar errors de sintaxi com oblidar un parèntesi o una coma, tot això
+                és completament normal, i no passa res per no recordar-se'n al principi, amb el temps es millora ràpidament.</p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="parlar-amb-el-programa">Parlar amb el programa</h1>
+            <div class="card">
+                <h2>Què és print?</h2>
+                <p>La funció <code>print()</code> permet mostrar informació a la pantalla. Per exemple, si escrius 
+                    <code>print("Hola món")</code>, es mostrarà "Hola món" a la pantalla.</p>
+                <p>Print també pot mostrar variables o valors numèrics, però es fa sense comes: <code>print(variable)</code> o <code>print(2+3)</code></p>
+                <p>Si vols mostrar més d'un valor, pots separar-los amb comes: <code>print("Hola", variable)</code></p>
+                <h2>Variables</h2>
+                <p>Una variable és un nom que es pot utilitzar per guardar informació. Per exemple, si escrius 
+                    <code>nom = "Pere"</code>, estàs guardant el text "Pere" a la variable <code>nom</code>. Aleshores pots utilitzar la variable <code>nom</code> en lloc de "Pere", les variables poden canviar de valor i contindre: textos, numeros i valors; tipo Verdader i Fals.</p>
+                <h2>Què és input?</h2>
+                <p>La funció <code>input()</code> permet al programa rebre informació de l'usuari. Per exemple, si escrius 
+                    <code>nom = input("Com et dius? ")</code>, el programa mostrarà "Com et dius? " i esperarà que l'usuari escrigui el seu nom. El nom introduït es guardarà a la variable <code>nom</code>.</p>
+                <p>Pots pensar a l'input com a un print que demana informació a l'usuari.</p>
+                <p>Ara deixaré un exemple de codi per acabar-ho d'entendre:</p>
+                <img src="../assets/img/Python-exercici_1.png" alt="demonstració Python">
+                <p>Això és el resultat d'executar el codi de la imatge:</p>
+                <img src="../assets/img/output-demo-1.png" alt="Output">
+                <p>On he respost "Pau" quan l'input demanava el nom.</p>
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 1</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="variables">Tipos de variables</h1>
+            <div class="card">
+                <h2>str</h2>
+                <p>Un tipus de variable <code>str</code> (string) és una cadena de text. Per exemple, <code>"Hola"</code> o 
+                <code>"123"</code> són els dos cadenes de text, la diferència de <code>123</code> i <code>"123"</code> són les cometes, qualsevol cosa entre cometes és una cadena de text (str)</p>
+                <h2>int</h2>
+                <p>Un tipus de variable <code>int</code> (integer) és un nombre enter. Per exemple, <code>42</code> o <code>-7</code> són nombres enters.</p>
+                <h2>float</h2>
+                <p>Un tipus de variable <code>float</code> és un nombre decimal. Per exemple, <code>3.14</code> o <code>-0.001</code> són nombres decimals.</p>
+                <h2>bool</h2>
+                <p>Un tipus de variable <code>bool</code> (boolean) és un valor que pot ser només <code>True</code> (verdader) o <code>False</code> (fals).</p>
+                <h2>Notes</h2>
+                <ul>
+                    <li>Només es poden fer càlculs amb int i float, per molt que un str sigui "100" no el podries sumar amb res.</li>
+                    <li>Les variables de tipus str no es poden combinar amb int o float sense convertir-les primer.</li>
+                    <li>Les variables de tipus bool només poden tenir els valors True o False, són com preguntes de si o no</li>
+                    <li>L'operador <code>type()</code> et permet veure quin tipus de variable tens.</li>
+                    <p>Exemple de type: <code>print(type("Hola"))</code>, mostra <code>< class 'str'></code></p>
+                    <p>Exemple de type #2: <code>print(type(42))</code>, mostra <code>< class 'int'></code></p>
+                </ul>
+                <h2>Canvis de Tipos</h2>
+                <p>Si jo vull canviar el tipus d'una variable, puc fer servir funcions com <code>int()</code>, <code>float()</code>, o <code>str()</code>. Per exemple:</p>
+                <ul>
+                    <li><code>int("123")</code> retorna 123 (un int)</li>
+                    <li><code>float("123")</code> retorna 123.0 (un float)</li>
+                    <li><code>str(123)</code> retorna "123" (un str)</li>
+                </ul>
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 2</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="operacions">Operacións</h1>
+            <div class="card">
+                <h2>Operadors aritmètics</h2>
+                <p>Python permet fer operacions matemàtiques amb els operadors aritmètics:</p>
+                <ul>
+                    <li><code>+</code> per sumar</li>
+                    <p>Exemple: <code>print(5 + 3)</code> mostra <code>8</code></p>
+                    <li><code>-</code> per restar</li>
+                    <p>Exemple: <code>print(5 - 3)</code> mostra <code>2</code></p>
+                    <li><code>*</code> per multiplicar</li>
+                    <p>Exemple: <code>print(5 * 3)</code> mostra <code>15</code></p>
+                    <li><code>/</code> per dividir (resultat sempre float)</li>
+                    <p>Exemple: <code>print(5 / 2)</code> mostra <code>2.5</code></p>
+                    <li><code>//</code> per dividir i obtenir només la part entera (divisió entera)</li>
+                    <p>Exemple: <code>print(5 // 2)</code> mostra <code>2</code></p>
+                    <li><code>%</code> per obtenir el residu de la divisió (mòdul)</li>
+                    <p>Exemple: <code>print(5 % 2)</code> mostra <code>1</code></p>
+                    <li><code>**</code> per elevar a una potència (exponent)</li>
+                    <p>Exemple: <code>print(5 ** 2)</code> mostra <code>25</code></p>
+                </ul>
+                <p>És important saber que també es pot fer operacions amb variebles si són de tipos int o float.</p>
+                <p>Exemple:</p>
+                <div class="code-box">
+                    num1 = 5<br>num2 = 3<br>print(num1 + num2) # mostra 8
+                </div>
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 3</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="condicions">Prendre decisions</h1>
+            <div class="card">
+                <p>Les condicions permeten prendre desicions depèn de si una expressió de comparadors i operadors lògics és True o False.</p>
+                <p>Aquest tema, en la meva opinió, és molt important però també és complex, cal dedicar-li pràctica, i recorda que en qualsevol dubte pots anar a l'apartat d'ajuda a la pàgina principal.</p>
+                <h2>Comparadors</h2>
+                <ul>
+                    <li><code>==</code> per comparar si dos valors són iguals</li>
+                    <p>Exemple: <code>print(5 == 5)</code> mostra <code>True</code></p>
+                    <li><code>!=</code> per comparar si dos valors són diferents</li>
+                    <p>Exemple: <code>print(5 != 3)</code> mostra <code>True</code></p>
+                    <li><code>&lt;</code> per comparar si un valor és menor que un altre</li>
+                    <p>Exemple: <code>print(5 &lt; 3)</code> mostra <code>False</code></p>
+                    <li><code>&gt;</code> per comparar si un valor és més gran que un altre</li>
+                    <p>Exemple: <code>print(5 > 3)</code> mostra <code>True</code></p>
+                    <li><code>&lt;=</code> per comparar si un valor és menor o igual que un altre</li>
+                    <p>Exemple: <code>print(5 &lt;= 5)</code> mostra <code>True</code></p>
+                    <li><code>&gt;=</code> per comparar si un valor és més gran o igual que un altre</li>
+                    <p>Exemple: <code>print(5 &gt;= 6)</code> mostra <code>False</code></p>
+                </ul>
+                <h2>Operadors lògics</h2>
+                <ul>
+                    <li><code>and</code> per combinar dues condicions i que totes dues siguin True</li>
+                    <p>Exemple: <code>print(5 > 3 and 5 < 10)</code> mostra <code>True</code></p>
+                    <li><code>or</code> per combinar dues condicions i que alguna sigui True</li>
+                    <p>Exemple: <code>print(5 > 3 or 5 > 10)</code> mostra <code>True</code></p>
+                    <li><code>not</code> per negar una condició</li>
+                    <p>Exemple: <code>print(not(5 > 3))</code> mostra <code>False</code></p>
+                </ul>
+                <h2>Tipus de condicions</h2>
+                <p>Les condicions són preguntes que es fan a l'ordinador per veure si una expressió és True o False, i al ser True s'executa el codi dins de la condició.</p>
+                <p>N'hi han tres:</p>
+                <ul>
+                    <li>if</li>
+                    <li>elif</li>
+                    <li>else</li>
+                </ul>
+                <h2>If</h2>
+                <p>If significa "Si això és veritat, fes això", i és una condició que permet executar codi només si una expressió és True.</p>
+                <div class="code-box">
+                    if 5 > 3:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("5 és més gran que 3") #aquesta l'ínea s'executarà perquè 5 > 3 és True
+                </div>
+                <h2>Elif</h2>
+                <p>Elif significa sinó i permet afegir condicions addicionals.</p>
+                <div class="code-box">
+                    num = 10<br>
+                    if num > 10:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("num és més gran que 10")<br>
+                    elif num == 10:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("num és igual a 10") #aquesta l'ínea s'executarà perquè num == 10 és True
+                </div>
+                <h2>Else</h2>
+                <p>Else vol dir "Si cap de les anteriors és certa", i és una condició que s'executa si cap de les condicions anteriors és True, no cal posar condició.</p>
+                <div class="code-box">
+                    num = 5<br>
+                    if num > 10:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("num és més gran que 10")<br>
+                    elif num == 10:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("num és igual a 10")<br>
+                    else:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("num és menor que 10") #aquesta l'ínea s'executarà perquè cap de les condicions anteriors és True
+                </div>
+                <h2>Aspectes importants abans de continuar</h2>
+                <ul>
+                    <li>L'igual de les condicions, o sigui, per dir això en Python s'utilitza <code>==</code> i no <code>=</code>.</li>
+                    <li>Els elif es poden posar més d'una vegada per "bloc de condicions" i el bloc s'atura quan es troba una condició que és True, com es mostra en el següent exemple:</li>
+                    <div class="code-box">
+                        num = 10<br>
+                        if num < 5:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print("num és més gran que 5") # no s'executarà perquè num < 5 és False<br>
+                        elif num > 8:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print("num és més gran que 8") # s'executarà perquè num > 8 és True<br>
+                        elif num == 10:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;print("num és igual a 10") # no s'executarà perquè el bloc de condicions ja s'ha aturat a la línea anterior<br>
+                    </div>
+                    <li>S'ha de posar dos punts després de la condició (if, elif, else)</li>
+                    <li>El codi a executar ha d'estar indentat amb 4 espais o un tabulador</li>
+                </ul>
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 4</strong></p>
+                <p><strong>També estàs preparat per fer el teu primer projecte, ves a l'apartat de projectes i fes el primer (opcional).</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="bucles">Repetir coses</h1>
+            <div class="card">
+                <h2>Què és while?</h2>
+                <p>While és un bucle que es repeteix mentre una condició sigui certa o fins que s'aturi amb la funció <code>break</code>.</p>
+                <p>Per exemple, el següent codi mostrarà els números del 1 al 5:</p>
+                <div class="code-box">
+                    num = 1<br>
+                    while num <= 5:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(num)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;num += 1 # això és el mateix que num = num + 1
+                </div>
+                <h2>Bucles infinits</h2>
+                <p>Si fas un bucle while amb una condició que sempre és certa, el bucle serà infinit.</p>
+                <p>La millor forma és dir directament <code>while True:</code> com en el següent exemple:</p>
+                <div class="code-box">
+                    while True:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Això es repetirà infinitament")<br>
+                </div>
+                <h2>Break</h2>
+                <p>Sovint voldràs aturar el bucle infinit abans de que acabi amb el teu ordinador, per a això, s'utilitza <code>break</code> aquí un exemple:</p>
+                <div class="code-box">
+                    while True:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;resposta = input("Vols aturar el bucle? (sí/no) ")<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if resposta == "sí":<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break # això atura el bucle<br>
+                </div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 5</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="bucles-control">Repetir amb control</h1>
+            <div class="card">
+                <h2>Què fa for?</h2>
+                <p>Un <code>for</code> serveix per repetir una cosa varies vegades, es pot traduïr al català com: "Fes això per cada element"</p>
+                
+                <h2>Comptar números</h2>
+                <p>per comptar numeros utilitzem <code>range()</code>, així:</p>
+                <div class="code-box">
+                    for numero in range(1,6): <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(numero)
+                </div>
+                <p><code>range(1,6)</code> vol dir de l'1 al 5 (el número final no s'inclou mai)</p>
+                <p>Sortida:</p>
+                <div class="code-box">
+                    1 <br> 2 <br> 3 <br> 4 <br> 5
+                </div>
+                
+                <h2>Recórrer una paraula</h2>
+                <div class="code-box">
+                    for lletra in "hola": <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(lletra)
+                </div>
+                <p>Agafa cada lletra una per una i les mostra a la pantalla.</p>
+                <p>Sortida:</p>
+                <div class="code-box">
+                    h <br> o <br> l <br> a
+                </div>
+
+                <h2>Idea principal</h2>
+                <p><code>for</code> funciona així:</p>
+                <div class="code-box">
+                    for variable in alguna_cosa: <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;acció
+                </div>
+                <p>Python agafa cada element d'"alguna cosa" i fa l'acció.</p>
+                
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer els exercicis 6 i 7</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="Aleatorietat">Aleatorietat</h1>
+            <div class="card">
+                <h2>Per què serveix random?</h2>
+                <p>Random serveix per fer que el programa tingui "sort", o sigui, que no sempre faci el mateix. Això va perfecte per jocs (daus, monedes, enemics, endevinar...).</p>
+
+                <h2>Importar random</h2>
+                <p>Per utilitzar-ho, primer s'ha d'importar:</p>
+                <div class="code-box">
+                    import random
+                </div>
+
+                <h2>randint()</h2>
+                <p><code>randint(a, b)</code> dona un número aleatori entre <strong>a i b</strong> (aquí sí que s'inclou el final).</p>
+                <div class="code-box">
+                    import random<br>
+                    num = random.randint(1, 6)<br>
+                    print(num) # com un dau (1 a 6)
+                </div>
+
+                <h2>Exemples ràpids</h2>
+                <p>Moneda (cara o creu):</p>
+                <div class="code-box">
+                    import random<br>
+                    tirada = random.randint(0, 1)<br>
+                    if tirada == 0:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Cara")<br>
+                    else:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Creu")
+                </div>
+
+                <h2>Try</h2>
+                <p>Try no és sobre aleatorietat, però en aquest punt el necessites, serveix per evitar errors.</p>
+
+                <p>Quan l'usuari escriu alguna cosa, pot escriure text en comptes d'un número, i això pot fer que el programa peti. Amb <code>try</code> podem provar un codi, i si falla, fem una altra cosa.</p>
+
+                <p>La idea és:</p>
+                <div class="code-box">
+                    try:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;# codi que pot donar error<br>
+                    except:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;# què fer si hi ha error
+                </div>
+
+                <h3>Exemple</h3>
+                <p>Sense <code>try</code>, això pot donar error si l'usuari escriu text:</p>
+
+                <div class="code-box">
+                    numero = int(input("Introdueix un número: "))<br>
+                    print(numero)
+                </div>
+
+                <p>Si l'usuari escriu "hola", el programa es tanca amb un error.</p>
+
+                <p>Amb <code>try</code> ho podem controlar:</p>
+
+                <div class="code-box">
+                    try:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;numero = int(input("Introdueix un número: "))<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(numero)<br>
+                    except:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Això no és un número!")
+                </div>
+
+                <p>Ara, si l'usuari escriu text, el programa no peta, simplement mostra el missatge.</p>
+
+                <p><strong>Important:</strong> <code>try</code> no arregla l'error, només evita que el programa es tanqui.</p>
+
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 8</strong></p>
+                <p><strong>Ja ets capaç de fer el teu primer joc, pots veure-ho al projecte 2.</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="llistes">Llistes</h1>
+            <div class="card">
+                <h2>Què és una llista?</h2>
+                <p>Una llista és com una variable, però en comptes de guardar una sola cosa, en guarda <strong>moltes</strong>. Per exemple: noms, puntuacions, objectes d'un inventari...</p>
+
+                <h2>Crear una llista</h2>
+                <div class="code-box">
+                    inventari = ["espasa", "poció", "clau"]<br>
+                    print(inventari)
+                </div>
+
+                <h2>append()</h2>
+                <p><code>append()</code> afegeix una cosa al final:</p>
+                <div class="code-box">
+                    inventari = ["espasa"]<br>
+                    inventari.append("poció")<br>
+                    print(inventari) # ["espasa", "poció"]
+                </div>
+
+                <h2>remove()</h2>
+                <p><code>remove()</code> elimina un element (si existeix):</p>
+                <div class="code-box">
+                    inventari = ["espasa", "poció"]<br>
+                    inventari.remove("poció")<br>
+                    print(inventari) # ["espasa"]
+                </div>
+
+                <h2>len()</h2>
+                <p><code>len()</code> diu quants elements hi ha:</p>
+                <div class="code-box">
+                    inventari = ["espasa", "clau", "poció"]<br>
+                    print(len(inventari)) # 3
+                </div>
+
+                <h2>Recórrer una llista</h2>
+                <p>Amb un <code>for</code> pots veure cada element:</p>
+                <div class="code-box">
+                    inventari = ["espasa", "clau", "poció"]<br>
+                    for item in inventari:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(item)
+                </div>
+
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 9</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="funcions">Funcions</h1>
+            <div class="card">
+                <h2>Per què serveixen les funcions?</h2>
+                <p>Les funcions serveixen per no repetir codi i tenir-ho tot més ordenat. És com posar un tros de codi dins d'un "botó" que pots tornar a usar quan vulguis.</p>
+
+                <h2>def</h2>
+                <p>Per crear una funció s'utilitza <code>def</code>:</p>
+                <div class="code-box">
+                    def saludar():<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Hola!")<br>
+                    <br>
+                    saludar() # crida la funció
+                </div>
+
+                <h2>Paràmetres</h2>
+                <p>Un paràmetre és informació que li passes a la funció:</p>
+                <div class="code-box">
+                    def saludar(nom):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Hola", nom)<br>
+                    <br>
+                    saludar("Pau") #Hola Pau<br>
+                    saludar("Laia") #Hola Laia
+                </div>
+
+                <h2>return</h2>
+                <p><code>return</code> serveix per tornar un resultat (en comptes de només fer print):</p>
+                <div class="code-box">
+                    def suma(a, b):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return a + b<br>
+                    <br>
+                    resultat = suma(3, 4)<br>
+                    print(resultat) # 7
+                </div>
+
+                <h2>Exemples típics en jocs</h2>
+                <p>Funció de dany:</p>
+                <div class="code-box">
+                    def dany(atac):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return atac * 2
+                </div>
+                <p>Funció per mostrar un menú (més endavant ho faràs complet):</p>
+                <div class="code-box">
+                    def mostrar_menu():<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("1. Jugar")<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("2. Inventari")<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("3. Sortir")
+                </div>
+
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 10</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="texts-intelligents">Texts intel·ligents</h1>
+            <div class="card">
+                <h2>Per què és important?</h2>
+                <p>En jocs de text, l'usuari escriu de mil maneres diferents ("SI", "sí", "Si ", etc). Aquí aprendràs a netejar i comparar texts bé.</p>
+
+                <h2>.lower()</h2>
+                <p>Passa el text a minúscules, per exemple si introdueixes "Hola", i fas un .lower(), el text pasara a ser "hola".</p>
+                <div class="code-box">
+                    resposta = input("Sí o no? ") #exemple: Sí <br>
+                    resposta = resposta.lower() #Sí -> treus majúscules -> sí <br>
+                    print(resposta) # sí
+                </div>
+
+                <h2>.strip()</h2>
+                <p>Moltes vegades l'usuari pot deixar espais al principi o final de una paraula o frase.</p>
+                <p>Per exemple, si introdueixo <code>" Marc "</code> en el següent codi, suprimirà els espais al principi i final.</p>
+                <div class="code-box">
+                    nom = input("Nom: ") # " Marc "<br>
+                    nom = nom.strip() #"Marc"
+                </div>
+                <p><strong>Important:</strong> només elimina espais al principi i final, no els del mig, per exemple a la frase <code>"Em dic Maties "</code>, té 
+                un espai al final, però també entre les paraules, anem a veure que passa si utilitzem .strip()</p>
+                <div class="code-box">
+                    frase = input("Introdueix una frase: ") # "Em dic Maties " <br>
+                    frase.strip() # "Em dic Maties"
+                </div>
+                <h2>in</h2>
+                <p><code>in</code> comprova si una cosa és dins d'un text:</p>
+                <div class="code-box">
+                    frase = "tinc una espasa"<br>
+                    print("espasa" in frase) # True
+                </div>
+                <p>S'utilitza sobretot a condicións if:</p>
+                <div class="code-box">
+                    frase = "Tinc gana" <br>
+                    <br>
+                    if "gana" in frase: <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Menjant...") <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;menjar() <br>
+                </div>
+
+                <h2>f-strings</h2>
+                <p>Per ajuntar text i variables de forma còmoda:</p>
+                <div class="code-box">
+                    nom = "Pau"<br>
+                    edat = 15<br>
+                    print(f"Em dic {nom} i tinc {edat} anys") #Em dic Pau i tinc 15 anys
+                </div>
+
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 11</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="errors">Error i debug</h1>
+            <div class="card">
+                <h2>Errors típics</h2>
+                <p>Els errors són normals. No vol dir que siguis dolent, vol dir que estàs programant.</p>
+                <ul>
+                    <li><strong>SyntaxError</strong>: falta un <code>:</code>, un parèntesi, cometes, etc.</li>
+                    <li><strong>NameError</strong>: has escrit un nom malament (variable o funció).</li>
+                    <li><strong>TypeError</strong>: estàs barrejant tipus (ex: sumar text amb número).</li>
+                    <li><strong>ValueError</strong>: intentes convertir una cosa que no es pot (ex: <code>int("hola")</code>).</li>
+                </ul>
+
+                <h2>Exemple d'error:</h2>
+                <p>Aquest és el meu codi, és per veure si algú és major d'edat:</p>
+                <div class="code-box">
+                    edat = input("Quants anys tens? ") <br><br>
+                    if edat >= 18: <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Ets major d'edat")
+                </div>
+                <p>Al executar-lo a VSCode em surt un error després de l'input.</p>
+                <div class="code-box">
+                    File "c:\Ruta_del_projecte\fitxer.py", line 3, in &lt;module&gt; <br>
+                       if edat >= 18: <br>
+                       &nbsp;&nbsp;^^^^^^^^^^ <br> <br>
+                       TypeError: '>=' not supported between instances of 'str' and 'int'
+                </div>
+                <ul>
+                    <li>File "c:\Ruta_del_projecte\fitxer.py" → ruta del fitxer on es troba l'error.</li> <br>
+                    <li>line 3 → línea on passa l'error, en el exemple, és la 3 (if edat >= 18:)</li> <br>
+                    <li>if edat >= 18: → tant això com les fletxetes que ho apunten a la línea d'abaix, indiquen exactament què ha fallat, normalment, en vermell.</li> <br>
+                    <li>
+                        TypeError: '>=' not supported between instances of 'str' and 'int' 
+                        <ul>
+                            <li><strong>TypeError</strong> → estem barrejant dos tipos de variables (int,str,bool o float)</li>
+                            <li>'>=' → aquí ens diu que no es pot fer la comparació de més gran o igual que, debut a la barreja de variables.</li>
+                            <li>not supported between instances of <strong>'str'</strong> and <strong>'int'</strong> → ara ens diu els dos tipos de variables que hem barrejat</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Ara sabem que la forma d'arreglar el codi és assegurant-nos de que les dos variables són compatibles.</p>
+                <p>Codi arreglat:</p>
+                <div class="code-box">
+                    edat = int(input("Quants anys tens? ")) #convertir l'input a int <br><br>
+                    if edat >= 18: #18 ja és un int, no cal fer res. <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("Ets major d'edat")
+                </div>
+
+                <h2>Llegir el missatge d'error</h2>
+                <p>El missatge d'error normalment diu:</p>
+                <ul>
+                    <li>Quin tipus d'error és</li>
+                    <li>En quina línia passa</li>
+                    <li>Quina part no li agrada a Python</li>
+                </ul>
+
+                <h2>Debug ràpid amb print()</h2>
+                <p>Quan no saps què passa, posa <code>print()</code> per veure valors:</p>
+                <div class="code-box">
+                    num = 5<br>
+                    print("num val:", num)<br>
+                    num = num + 1<br>
+                    print("ara num val:", num)
+                </div>
+
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 12</strong></p>
+            </div>
+        </section>
+
+        <section class="tema">
+            <h1 id="Menús">Menús i programa complet</h1>
+            <div class="card">
+                <h2>Què és un menú?</h2>
+                <p>Un menú és una forma d'ajuntar-ho tot en un sol programa: l'usuari tria una opció i el programa fa una cosa.</p>
+
+                <h2>Menú amb while True</h2>
+                <p>La idea és repetir el menú fins que l'usuari digui sortir:</p>
+                <div class="code-box">
+                    while True:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("1. Jugar")<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("2. Inventari")<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print("3. Sortir")<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;opcio = input("Tria una opció: ")<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if opcio == "1":<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Comença el joc...")<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;elif opcio == "2":<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Mostrant inventari...")<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;elif opcio == "3":<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Opció incorrecta")
+                </div>
+
+                <h2>Important</h2>
+                <ul>
+                    <li>Les opcions han de ser clares i numerades.</li>
+                    <li>Si l'usuari posa una cosa rara, el programa no ha de petar: posa un <code>else</code>.</li>
+                    <li>Per sortir bé, normalment fem <code>break</code>.</li>
+                </ul>
+
+                <div style="height: 10px;"></div>
+                <p><strong>Ara pots anar a l'apartat d'exercicis i fer l'exercici 13</strong></p>
+                <p><strong>I ja tens base per començar el joc final (ves a l'apartat de projectes)</strong></p>
+            </div>
+        </section>
+
+        <div style="padding-bottom: 70px;"></div>
+
+        <footer class="footer">
+            <div class="container footer-inner">
+                <p>Curs de Python per a principiants. Tots els drets reservats.</p>
+            </div>
+        </footer>
+    </main>
+
+</body>
+<script>
+    const currentPath = location.pathname;
+
+    document.querySelectorAll(".menu a").forEach(link => {
+        const linkURL = new URL(link.href);
+        if (linkURL.pathname === currentPath) {
+            link.classList.add("active");
+        }
+    });
+</script>
+</html>

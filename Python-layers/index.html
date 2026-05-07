@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python per capes</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="assets/img/python-logo.png" type="image/png" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contingut</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#">
+        <img src="assets/img/python-logo.png" alt="Python Logo" class="logo" />
+        <span class="brand-title">Python</span>
+      </a>
+
+      <nav class="menu" aria-label="Navegació principal">
+        <a href="index.html" data-title="Inici">Pàgina d'inici</a>
+        <a href="temes/index.html" data-title="Temes">Temes</a>
+        <a href="exercicis/index.html" data-title="Exercicis">Exercicis</a>
+        <a href="projectes/index.html" data-title="Projectes">Projectes</a>
+        <a href="quizzez/index.html" data-title="Quizzez">Quizzez</a>
+        <a href="recursos/index.html" data-title="Recursos">Recursos</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="container hero-inner" id="main-look">
+      <h1 class="hero-title">Layers of Python</h1>
+      <p class="hero-subtitle">Aprèn pas a pas amb pràctica, exemples i projectes reals.</p>
+
+      <div class="hero-actions" id="main-look-btns">
+        <a class="btn ghost" href="https://www.python.org/downloads/" target="_blank" rel="noopener">
+          Baixar Python
+        </a>
+        <a class="btn" href="#titol1-tp">Començar</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container content" id="main">
+    <div class="stack">
+      <section class="card" id="titol1-tp">
+        <h2>Aprendre Python sense patir</h2>
+        <p>
+          Python és un llenguatge de programació molt utilitzat i fàcil d’aprendre. La seva dificultat depèn de la manera
+          com s’ensenyi. En aquest curs s’utilitzarà una metodologia pràctica, treballant amb exercicis i projectes, i
+          explicant la teoria només quan calgui.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Com aprendrem?</h2>
+        <p>La majoria de les explicacions es faran així:</p>
+
+        <ul class="steps">
+          <li>
+            <h3>Llegeix</h3>
+            <p>A cada secció, trobaràs una explicació breu i sovint vídeos.</p>
+          </li>
+          <li>
+            <h3>Prova</h3>
+            <p>Després, practica amb exercicis per consolidar els conceptes.</p>
+          </li>
+          <li>
+            <h3>Pista / Solució</h3>
+            <p>Si et quedes encallat, tindràs pistes o solucions per avançar.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Ajuda</h2>
+
+        <ul class="help">
+          <li>
+            <strong>Bucles infinits</strong>
+            <p>
+              Si es crea un bucle infinit, atura el programa ràpidament: tanca la finestra, usa l’Administrador de tasques
+              o reinicia el dispositiu si cal.
+            </p>
+          </li>
+
+          <li>
+            <strong>Problemes amb random</strong>
+            <p>
+              Assegura’t d’escriure <code>import random</code> al principi i cridar les funcions amb els valors correctes.
+              <a class="inline-link" href="https://docs.python.org/es/3.9/library/random.html" target="_blank" rel="noopener">
+                Guia de random
+              </a>
+            </p>
+          </li>
+
+          <li>
+            <strong>Altres</strong>
+            <p>
+              Pots consultar al professor, l'Aleix Abril o <a class="inline-link" href="https://ellibrodepython.com/" target="_blank" rel="noopener">
+                buscar al llibre de Python
+              </a>
+            </p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Curs de Python per a principiants. Tots els drets reservats.</p>
+    </div>
+  </footer>
+
+  <script>
+    const currentPath = location.pathname;
+
+    document.querySelectorAll(".menu a").forEach(link => {
+        const linkURL = new URL(link.href);
+        if (linkURL.pathname === currentPath) {
+            link.classList.add("active");
+        }
+    });
+</script>
+</body>
+</html>

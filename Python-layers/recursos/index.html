@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/temes.css">
+    <link rel="icon" href="../assets/img/python-logo.png" type="image/png" />
+    <title>Python - Recursos</title>
+</head>
+<body>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a class="brand" href="#">
+                <img src="../assets/img/python-logo.png" alt="Python Logo" class="logo" />
+                <span class="brand-title">Python</span>
+            </a>
+
+            <nav class="menu" aria-label="Navegació principal">
+                <a href="../index.html" data-title="Inici">Pàgina d'inici</a>
+                <a href="../temes/index.html" data-title="Temes">Temes</a>
+                <a href="../exercicis/index.html" data-title="Exercicis">Exercicis</a>
+                <a href="../projectes/index.html" data-title="Projectes">Projectes</a>
+                <a href="../quizzez/index.html" data-title="Quizzez">Quizzez</a>
+                <a href="../recursos/index.html" data-title="Recursos">Recursos</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h2 style="text-align: center;">Aquí trobaràs una llista de recursos per aprendre Python.</h2>
+        <hr>
+            <div style="display: flex;">
+        <!-- Columna 1 -->
+            <div class="recursos">
+                <h2>Documentació i aprenentatge</h2>
+
+                <a href="https://docs.python.org/3/" target="_blank">
+                    Documentació oficial de Python
+                </a> <br>
+
+                <a href="https://www.w3schools.com/python/" target="_blank">
+                    Python a W3Schools (explicacions ràpides)
+                </a> <br>
+
+                <a href="https://realpython.com/" target="_blank">
+                    Real Python (articles i tutorials)
+                </a> <br>
+
+                <a href="https://stackoverflow.com/questions/tagged/python" target="_blank">
+                    Stack Overflow (dubtes reals)
+                </a> <br>
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="recursos">
+                <h2>Eines útils</h2>
+
+                <a href="https://code.visualstudio.com/" target="_blank">
+                    Visual Studio Code
+                </a> <br>
+
+                <a href="https://github.com/python" target="_blank">
+                    GitHub(Projectes)
+                </a> <br>
+
+                <a href="https://replit.com/" target="_blank">
+                    Replit (Python online)
+                </a> <br>
+
+                <a href="https://github.com/" target="_blank">
+                    GitHub (guardar projectes)
+                </a> <br>
+            </div>
+            <div style="padding-bottom: 27%;"></div>
+        </div>
+    </main>
+    <div style="padding-bottom: 70px;"></div>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>Curs de Python per a principiants. Tots els drets reservats.</p>
+        </div>
+    </footer>
+</body>
+<script>
+    const currentPath = location.pathname;
+
+    document.querySelectorAll(".menu a").forEach(link => {
+        const linkURL = new URL(link.href);
+        if (linkURL.pathname === currentPath) {
+            link.classList.add("active");
+        }
+    });
+</script>
+</html>

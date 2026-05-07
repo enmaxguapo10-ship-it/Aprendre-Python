@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/temes.css">
+  <link rel="icon" href="../assets/img/python-logo.png" type="image/png" />
+  <title>Python - Exercicis</title>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#">
+        <img src="../assets/img/python-logo.png" alt="Python Logo" class="logo" />
+        <span class="brand-title">Python</span>
+      </a>
+
+      <nav class="menu" aria-label="Navegació principal">
+        <a href="../index.html" data-title="Inici">Pàgina d'inici</a>
+        <a href="../temes/index.html" data-title="Temes">Temes</a>
+        <a href="../exercicis/index.html" data-title="Exercicis">Exercicis</a>
+        <a href="../projectes/index.html" data-title="Projectes">Projectes</a>
+        <a href="../quizzez/index.html" data-title="Quizzez">Quizzez</a>
+        <a href="../recursos/index.html" data-title="Recursos">Recursos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div style="padding-bottom: 70px;"></div>
+
+    <!-- INDEX -->
+    <section class="tema">
+      <h1>Exercicis</h1>
+      <div class="card" id="index">
+        <p>Fes-los en un fitxer <code>.py</code>. Recomanat: un fitxer per exercici (ex: <code>ex1.py</code>, <code>ex2.py</code>...).</p>
+        <ol>
+          <li><a href="#ex1">Exercici 1 — print i input</a></li>
+          <li><a href="#ex2">Exercici 2 — Tipus de variables</a></li>
+          <li><a href="#ex3">Exercici 3 — Operacions</a></li>
+          <li><a href="#ex4">Exercici 4 — Condicions</a></li>
+          <li><a href="#ex5">Exercici 5 — while i break</a></li>
+          <li><a href="#ex6">Exercici 6 — for i range</a></li>
+          <li><a href="#ex7">Exercici 7 — for recorrent text</a></li>
+          <li><a href="#ex8">Exercici 8 — random (dau o moneda)</a></li>
+          <li><a href="#ex9">Exercici 9 — Llistes</a></li>
+          <li><a href="#ex10">Exercici 10 — Funcions</a></li>
+          <li><a href="#ex11">Exercici 11 — Texts intel·ligents</a></li>
+          <li><a href="#ex12">Exercici 12 — Debug i errors</a></li>
+          <li><a href="#ex13">Exercici 13 — Menú complet</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EX 1 -->
+    <section class="tema" id="ex1">
+      <h1>Exercici 1 — print i input</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> demanar informació i mostrar-la per pantalla.</p>
+
+        <p><strong>Enunciat:</strong> Demana a l’usuari el seu nom i la seva edat, i mostra un missatge com:</p>
+        <div class="code-box">
+          Em dic Pau i tinc 15 anys
+        </div>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Fes servir <code>input()</code> per demanar i <code>print()</code> per mostrar.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/edxercici-1-res.png" alt="resultat1" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 2 -->
+    <section class="tema" id="ex2">
+      <h1>Exercici 2 — Tipus de variables</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> entendre <code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>type()</code> i conversions.</p>
+
+        <p><strong>Enunciat:</strong> Crea aquestes variables i mostra el seu tipus amb <code>type()</code>:</p>
+        <ul>
+          <li><code>a = "100"</code></li>
+          <li><code>b = 100</code></li>
+          <li><code>c = 3.5</code></li>
+          <li><code>d = True</code></li>
+        </ul>
+
+        <p>Després, converteix <code>a</code> a <code>int</code> i suma <code>a + b</code> (ha de donar 200).</p>
+        <p>Finalment, converteix <code>b</code> a <code>str</code> i mostra: <code>100 euros</code>.</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Conversions: <code>int()</code>, <code>float()</code>, <code>str()</code>.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-2-res.png" alt="resultat2" style="width: 40%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 3 -->
+    <section class="tema" id="ex3">
+      <h1>Exercici 3 — Operacions</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> practicar operadors <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>, <code>**</code>.</p>
+
+        <p><strong>Enunciat:</strong> Demana dos números a l’usuari i mostra:</p>
+        <ul>
+          <li>La suma</li>
+          <li>La resta</li>
+          <li>La multiplicació</li>
+          <li>La divisió</li>
+          <li>La divisió entera</li>
+          <li>El residu</li>
+          <li>El primer elevat al segon</li>
+        </ul>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Recorda: <code>input()</code> sempre dóna <code>str</code>, has de fer <code>int()</code> o <code>float()</code>.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-3-res.png" alt="resultat3" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 4 -->
+    <section class="tema" id="ex4">
+      <h1>Exercici 4 — Condicions</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> practicar <code>if</code>, <code>elif</code>, <code>else</code> i comparadors.</p>
+
+        <p><strong>Enunciat:</strong> Demana una edat i mostra:</p>
+        <ul>
+          <li>Si és menor de 18 → “Ets menor d’edat”</li>
+          <li>Si és 18 o més → “Ets major d’edat”</li>
+        </ul>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Converteix l’edat a <code>int</code> abans de comparar.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-4-res.png" alt="resultat4" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 5 -->
+    <section class="tema" id="ex5">
+      <h1>Exercici 5 — while i break</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> practicar bucles <code>while</code> i sortir amb <code>break</code>.</p>
+
+        <p><strong>Enunciat:</strong> Fes un programa que pregunti “Vols continuar? (sí/no)” fins que l’usuari respongui “no”.</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Usa <code>while True</code> + <code>break</code>. I recorda <code>.lower()</code> i <code>.strip()</code>.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-5-res.png" alt="resultat5" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 6 -->
+    <section class="tema" id="ex6">
+      <h1>Exercici 6 — for i range</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> comptar amb <code>range()</code>.</p>
+        <p><strong>Enunciat:</strong> Mostra els números del 1 al 20 i al final mostra quants números has mostrat.</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p><code>range(1, 21)</code> perquè el final no s’inclou.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-6-res.png" alt="resultat6" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 7 -->
+    <section class="tema" id="ex7">
+      <h1>Exercici 7 — for recorrent text</h1>
+      <div class="card">
+        <p><strong>Nota: </strong>Aquest exercici és extra, trobaràs funcións del tema següent (llistes), com len().</p>
+        <p><strong>Objectiu:</strong> recórrer una paraula lletra a lletra.</p>
+        <p><strong>Enunciat:</strong> Demana una paraula i mostra cada lletra en una línia. Després mostra quantes lletres té.</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Per comptar lletres: <code>len(paraula)</code>.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-7-res.png" alt="resultat7" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 8 -->
+    <section class="tema" id="ex8">
+      <h1>Exercici 8 — random (dau o moneda)</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> practicar <code>random.randint()</code>.</p>
+        <p><strong>Enunciat:</strong> Fes un programa que simuli una moneda (Cara o Creu).</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p><code>randint(0, 1)</code> i després un <code>if</code>.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-8-res.png" alt="resultat8" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 9 -->
+    <section class="tema" id="ex9">
+      <h1>Exercici 9 — Llistes</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> practicar llistes, <code>append()</code>, <code>remove()</code>, <code>len()</code>.</p>
+        <p><strong>Enunciat:</strong> Crea una llista inventari amb 2 objectes. Afegeix-ne un tercer. Elimina un. Mostra l’inventari i quants objectes queden.</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Exemple: <code>inventari.append("...")</code> i <code>inventari.remove("...")</code>.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-9-res.png" alt="resultat9" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 10 -->
+    <section class="tema" id="ex10">
+      <h1>Exercici 10 — Funcions</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> crear funcions amb paràmetres i <code>return</code>.</p>
+        <p><strong>Enunciat:</strong> Crea una funció <code>suma(a, b)</code> que retorni la suma. Després demana dos números i mostra el resultat.</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p><code>def suma(a, b): return a + b</code></p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-10-res.png" alt="resultat10" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 11 -->
+    <section class="tema" id="ex11">
+      <h1>Exercici 11 — Texts intel·ligents</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> practicar <code>.lower()</code>, <code>.strip()</code>, <code>in</code>.</p>
+        <p><strong>Enunciat:</strong> Demana una frase i comprova si conté la paraula “python” (sense importar majúscules/minúscules ni espais).</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Fes <code>frase = frase.lower()</code> i després mira si <code>"python" in frase</code>.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-11-res.png" alt="resultat11" style="width: 50%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 12 -->
+    <section class="tema" id="ex12">
+      <h1>Exercici 12 — Debug i errors</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> llegir errors i arreglar un codi.</p>
+        <p><strong>Enunciat:</strong> Aquest codi peta. Copia’l, executa’l i arregla’l:</p>
+        <img src="../assets/img/exercici-12-view.png" alt="view12" style="width: 50%;"> <br>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p><code>input()</code> retorna text. Converteix a <code>int</code>.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-12-res.png" alt="resultat12" style="width: 40%;">
+        </details>
+      </div>
+    </section>
+
+    <!-- EX 13 -->
+    <section class="tema" id="ex13">
+      <h1>Exercici 13 — Menú complet</h1>
+      <div class="card">
+        <p><strong>Objectiu:</strong> crear un programa amb menú i opcions.</p>
+        <p><strong>Enunciat:</strong> Fes un programa que mostri un menú amb 3 opcions i es repeteixi fins que l’usuari triï “Sortir”.</p>
+
+        <details>
+          <summary class="pista">Pista</summary>
+          <p>Fes servir <code>while True</code>, <code>if/elif/else</code> i <code>break</code> per sortir.</p>
+        </details>
+
+        <details>
+          <summary class="pista">Solució</summary>
+          <img src="../assets/img/exercici-13-res.png" alt="resultat13" style="width: 100%;">
+        </details>
+      </div>
+    </section>
+
+    <div style="padding-bottom: 70px;"></div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>Curs de Python per a principiants. Tots els drets reservats.</p>
+      </div>
+    </footer>
+  </main>
+
+</body>
+<script>
+    const currentPath = location.pathname;
+
+    document.querySelectorAll(".menu a").forEach(link => {
+        const linkURL = new URL(link.href);
+        if (linkURL.pathname === currentPath) {
+            link.classList.add("active");
+        }
+    });
+</script>
+</html>

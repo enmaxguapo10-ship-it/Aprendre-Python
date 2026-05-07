@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <title>PyBites — L1: ¿Qué es Python?</title>
+</head>
+<body>
+
+    <!-- ══ HEADER ═══════════════════════════════════════════ -->
+    <header>
+        <a href="../index.html" class="logo">
+            <div class="logo-icon">🐍</div>
+            <span class="logo-text">Py<span>Bites</span></span>
+        </a>
+        <div class="lesson-header-center">
+            <div class="lesson-progress-bar">
+                <div class="lesson-progress-fill" id="progressFill"></div>
+            </div>
+            <span class="lesson-progress-label" id="progressLabel">0 / 8</span>
+        </div>
+        <div class="header-right">
+            <div class="xp-badge">⚡ 340 XP</div>
+            <div class="streak-badge">🔥 7</div>
+            <div class="avatar">😎</div>
+        </div>
+    </header>
+
+    <!-- ══ LESSON CONTAINER ══════════════════════════════════ -->
+    <main class="lesson-main" id="lessonMain">
+
+        <!-- ── SLIDES de teoría ──────────────────────────── -->
+        <div class="lesson-card" id="card-s1">
+            <div class="card-emoji">🐍</div>
+            <h1 class="card-heading">¿Qué es Python?</h1>
+            <p class="card-body">Python es un <strong>lenguaje de programación</strong> de alto nivel, interpretado <strong>de arriba a abajo</strong> y de propósito general. Fue creado por <strong>Guido van Rossum</strong> y lanzado en 1991. Es famoso por su sintaxis clara y legible, que se parece al inglés cotidiano.</p>
+            <div class="card-fact">
+                <span class="fact-label">💡 Dato clave</span>
+                Python es actualmente el lenguaje <strong>#1 más popular del mundo</strong> según el índice TIOBE.
+            </div>
+            <button class="btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <div class="lesson-card hidden" id="card-s2">
+            <div class="card-emoji">🎭</div>
+            <h1 class="card-heading">¿De dónde viene el nombre?</h1>
+            <p class="card-body">Contrariamente a lo que mucha gente piensa, el nombre <strong>no viene de la serpiente</strong>. Guido van Rossum eligió el nombre en honor al grupo de comedia británico <strong>Monty Python's Flying Circus</strong>, ya que quería un nombre corto, único y un poco misterioso.</p>
+            <div class="card-fact">
+                <span class="fact-label">🎬 Curiosidad</span>
+                Los documentos oficiales de Python están llenos de referencias a sketches de Monty Python.
+            </div>
+            <button class="btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <div class="lesson-card hidden" id="card-s3">
+            <div class="card-emoji">🚀</div>
+            <h1 class="card-heading">¿Para qué sirve Python?</h1>
+            <p class="card-body">Python es increíblemente versátil. Se usa en múltiples campos:</p>
+            <div class="use-cases-grid">
+                <div class="use-case">🤖<span>IA & Machine Learning</span></div>
+                <div class="use-case">🌐<span>Desarrollo Web</span></div>
+                <div class="use-case">📊<span>Ciencia de Datos</span></div>
+                <div class="use-case">🔧<span>Automatización</span></div>
+                <div class="use-case">🎮<span>Videojuegos</span></div>
+                <div class="use-case">🔬<span>Ciencia & Investigación</span></div>
+            </div>
+            <button class="btn-primary" onclick="nextStep()">¡A practicar! 💪</button>
+        </div>
+
+        <!-- ── PREGUNTAS ─────────────────────────────────── -->
+
+        <!-- Q1: opción múltiple -->
+        <div class="lesson-card hidden" id="card-q1">
+            <div class="question-badge">Pregunta 1 de 5</div>
+            <h2 class="card-heading">¿En qué año fue lanzado Python por primera vez?</h2>
+            <div class="choices" id="choices-q1">
+                <button class="choice-btn" data-value="1985" onclick="selectChoice(this,'q1','1991')">1985</button>
+                <button class="choice-btn" data-value="1991" onclick="selectChoice(this,'q1','1991')">1991</button>
+                <button class="choice-btn" data-value="1998" onclick="selectChoice(this,'q1','1991')">1998</button>
+                <button class="choice-btn" data-value="2003" onclick="selectChoice(this,'q1','1991')">2003</button>
+            </div>
+            <div class="feedback hidden" id="feedback-q1"></div>
+            <button class="btn-primary hidden" id="next-q1" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Q2: arrastrar y ordenar -->
+        <div class="lesson-card hidden" id="card-q2">
+            <div class="question-badge">Pregunta 2 de 5</div>
+            <h2 class="card-heading">Ordena los pasos de cómo Python ejecuta tu código:</h2>
+            <p class="card-hint">Arrastra los bloques para ordenarlos correctamente</p>
+            <div class="drag-list" id="drag-q2">
+                <div class="drag-item" draggable="true" data-id="d3">⚙️ Se convierte a bytecode</div>
+                <div class="drag-item" draggable="true" data-id="d1">📝 Escribes el código .py</div>
+                <div class="drag-item" draggable="true" data-id="d4">💻 El resultado aparece en pantalla</div>
+                <div class="drag-item" draggable="true" data-id="d2">🔍 El intérprete lo lee línea a línea</div>
+            </div>
+            <div class="feedback hidden" id="feedback-q2"></div>
+            <button class="btn-secondary" id="check-q2" onclick="checkDrag('q2',['d1','d2','d3','d4'], this)">
+                Comprobar ✓
+            </button>
+            <button class="btn-primary hidden" id="next-q2" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Q3: opción múltiple -->
+        <div class="lesson-card hidden" id="card-q3">
+            <div class="question-badge">Pregunta 3 de 5</div>
+            <h2 class="card-heading">¿De dónde viene realmente el nombre "Python"?</h2>
+            <div class="choices" id="choices-q3">
+                <button class="choice-btn" data-value="serpiente"  onclick="selectChoice(this,'q3','monty')">De la serpiente pitón</button>
+                <button class="choice-btn" data-value="monty"      onclick="selectChoice(this,'q3','monty')">Del grupo de comedia Monty Python</button>
+                <button class="choice-btn" data-value="pitagoras"  onclick="selectChoice(this,'q3','monty')">Del matemático Pythagoras</button>
+                <button class="choice-btn" data-value="nasa"       onclick="selectChoice(this,'q3','monty')">Del proyecto PYTHON de la NASA</button>
+            </div>
+            <div class="feedback hidden" id="feedback-q3"></div>
+            <button class="btn-primary hidden" id="next-q3" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Q4: arrastrar y ordenar -->
+        <div class="lesson-card hidden" id="card-q4">
+            <div class="question-badge">Pregunta 4 de 5</div>
+            <h2 class="card-heading">Ordena estos usos de Python de más a menos común:</h2>
+            <p class="card-hint">Arrastra los bloques en el orden correcto</p>
+            <div class="drag-list" id="drag-q4">
+                <div class="drag-item" draggable="true" data-id="e3">📊 Ciencia de datos</div>
+                <div class="drag-item" draggable="true" data-id="e1">🤖 Inteligencia Artificial</div>
+                <div class="drag-item" draggable="true" data-id="e4">🔧 Automatización</div>
+                <div class="drag-item" draggable="true" data-id="e2">🌐 Desarrollo xweb</div>
+            </div>
+            <div class="feedback hidden" id="feedback-q4"></div>
+            <button class="btn-secondary" id="check-q4" onclick="checkDrag('q4',['e1','e2','e3','e4'], this)">
+                Comprobar ✓
+            </button>
+            <button class="btn-primary hidden" id="next-q4" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Q5: opción múltiple -->
+        <div class="lesson-card hidden" id="card-q5">
+            <div class="question-badge">Pregunta 5 de 5</div>
+            <h2 class="card-heading">¿Cuál de estas afirmaciones sobre Python es <em>falsa</em>?</h2>
+            <div class="choices" id="choices-q5">
+                <button class="choice-btn" data-value="a" onclick="selectChoice(this,'q5','c')">Python es un lenguaje interpretado</button>
+                <button class="choice-btn" data-value="b" onclick="selectChoice(this,'q5','c')">Python fue creado por Guido van Rossum</button>
+                <button class="choice-btn" data-value="c" onclick="selectChoice(this,'q5','c')">Python solo sirve para hacer páginas web</button>
+                <button class="choice-btn" data-value="d" onclick="selectChoice(this,'q5','c')">Python tiene una sintaxis muy legible</button>
+            </div>
+            <div class="feedback hidden" id="feedback-q5"></div>
+            <button class="btn-primary hidden" id="next-q5" onclick="finishLesson()">Ver resultados 🏆</button>
+        </div>
+
+        <!-- ── PANTALLA DE RESULTADOS ────────────────────── -->
+        <div class="lesson-card results-card hidden" id="card-results">
+            <div class="results-emoji" id="resultsEmoji">🏆</div>
+            <h1 class="card-heading" id="resultsTitle">¡Lección completada!</h1>
+            <p class="results-score" id="resultsScore"></p>
+            <div class="results-xp" id="resultsXP"></div>
+            <p class="results-explanation" id="resultsMsg"></p>
+            <div class="results-actions">
+                <a href="../index.html" class="btn-primary">Volver al mapa 🗺️</a>
+                <button class="btn-secondary" onclick="restartLesson()">Reintentar 🔄</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../../data/lessons.js"></script>
+    <script>
+        // ── Estado ──────────────────────────────────────────
+        const steps = ['s1','s2','s3','q1','q2','q3','q4','q5'];
+        let current = 0;
+        let score   = 0;
+        const totalQ = 5;
+
+        // ── Navegación ──────────────────────────────────────
+        function nextStep() {
+            current++;
+            if (current >= steps.length) return;
+            document.querySelectorAll('.lesson-card').forEach(c => c.classList.add('hidden'));
+            const next = document.getElementById('card-' + steps[current]);
+            next.classList.remove('hidden');
+            next.classList.add('slide-in');
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const pct = Math.round((current / (steps.length - 1)) * 100);
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('progressLabel').textContent = current + ' / ' + (steps.length - 1);
+        }
+
+        // ── Preguntas de opción múltiple ────────────────────
+        function selectChoice(btn, qId, correct) {
+            const container = document.getElementById('choices-' + qId);
+            if (container.dataset.answered) return;
+            container.dataset.answered = 'true';
+
+            const isCorrect = btn.dataset.value === correct;
+            if (isCorrect) { score++; btn.classList.add('correct'); }
+            else           { btn.classList.add('wrong'); }
+
+            // Marca la correcta si fallaron
+            container.querySelectorAll('.choice-btn').forEach(b => {
+                b.disabled = true;
+                if (b.dataset.value === correct) b.classList.add('correct');
+            });
+
+            showFeedback(qId, isCorrect);
+            document.getElementById('next-' + qId).classList.remove('hidden');
+        }
+
+       function initDrag(listId) {
+    const list = document.getElementById(listId);
+    let dragged = null;
+
+    list.addEventListener('dragstart', (e) => {
+        if (!e.target.classList.contains('drag-item')) return;
+        dragged = e.target;
+        e.target.classList.add('dragging');
+    });
+
+    list.addEventListener('dragend', (e) => {
+        if (!e.target.classList.contains('drag-item')) return;
+        e.target.classList.remove('dragging');
+        dragged = null;
+    });
+
+    list.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        if (!dragged) return;
+
+        const afterElement = getDragAfterElement(list, e.clientY);
+        if (afterElement == null) {
+            list.appendChild(dragged);
+        } else {
+            list.insertBefore(dragged, afterElement);
+        }
+    });
+}
+
+function getDragAfterElement(container, y) {
+    const items = [...container.querySelectorAll('.drag-item:not(.dragging)')];
+
+    let closest = { offset: Number.NEGATIVE_INFINITY, element: null };
+
+    for (const child of items) {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+
+        if (offset < 0 && offset > closest.offset) {
+            closest = { offset, element: child };
+        }
+    }
+
+    return closest.element;
+}
+
+function checkDrag(qId, correctOrder, btn) {
+    const list = document.getElementById('drag-' + qId);
+    const items = [...list.querySelectorAll('.drag-item')];
+    const current = items.map(i => i.dataset.id);
+
+    const isCorrect = JSON.stringify(current) === JSON.stringify(correctOrder);
+
+    if (isCorrect) {
+        score++;
+        items.forEach(i => i.classList.add('drag-correct'));
+    } else {
+        items.forEach(i => i.classList.add('drag-wrong'));
+    }
+
+    items.forEach(i => i.draggable = false);
+    list.style.pointerEvents = 'none';
+
+    showFeedback(qId, isCorrect);
+
+    // 🔥 MISMO COMPORTAMIENTO QUE Q2
+    btn.textContent = "Continuar →";
+    btn.classList.remove("btn-secondary");
+    btn.classList.add("btn-primary");
+
+    btn.onclick = () => nextStep();
+}
+
+        // ── Feedback ────────────────────────────────────────
+        function showFeedback(qId, isCorrect) {
+            const fb = document.getElementById('feedback-' + qId);
+            fb.classList.remove('hidden');
+            fb.className = 'feedback ' + (isCorrect ? 'feedback-ok' : 'feedback-err');
+            fb.textContent = isCorrect ? '✅ ¡Correcto!' : '❌ No del todo — ¡sigue intentando!';
+        }
+
+        // ── Resultados ──────────────────────────────────────
+        function finishLesson() {
+            document.querySelectorAll('.lesson-card').forEach(c => c.classList.add('hidden'));
+            const card = document.getElementById('card-results');
+            card.classList.remove('hidden');
+
+            const pct = Math.round((score / totalQ) * 100);
+            const xp  = score === totalQ ? 50 : Math.floor(50 * (score / totalQ));
+
+            document.getElementById('resultsEmoji').textContent  = pct === 100 ? '🏆' : pct >= 60 ? '🌟' : '💪';
+            document.getElementById('resultsTitle').textContent  = pct === 100 ? '¡Perfecto!' : pct >= 60 ? '¡Bien hecho!' : '¡Sigue practicando!';
+            document.getElementById('resultsScore').textContent  = `${score} de ${totalQ} respuestas correctas (${pct}%)`;
+            document.getElementById('resultsXP').textContent     = `+${xp} XP ganados`;
+            document.getElementById('resultsMsg').textContent    = pct === 100
+                ? '¡Dominas los fundamentos de Python! Estás listo para la siguiente lección.'
+                : 'Cada intento te acerca más a dominar Python. ¡No te rindas!';
+
+            // Guarda en lessons.js
+            if (typeof saveResult === 'function') saveResult('l1', score, totalQ);
+
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('progressLabel').textContent = steps.length - 1 + ' / ' + (steps.length - 1);
+        }
+
+        function restartLesson() {
+            current = 0; score = 0;
+            document.querySelectorAll('.lesson-card').forEach(c => c.classList.add('hidden'));
+            document.getElementById('card-s1').classList.remove('hidden');
+            document.querySelectorAll('.choice-btn').forEach(b => {
+                b.classList.remove('correct','wrong'); b.disabled = false;
+            });
+            document.querySelectorAll('.drag-item').forEach(i => {
+                i.classList.remove('drag-correct','drag-wrong'); i.draggable = true;
+            });
+            document.querySelectorAll('[data-answered]').forEach(el => delete el.dataset.answered);
+            document.querySelectorAll('.feedback').forEach(f => f.classList.add('hidden'));
+            document.querySelectorAll('[id^="next-"]').forEach(b => b.classList.add('hidden'));
+            updateProgress();
+        }
+
+        // ── Init ────────────────────────────────────────────
+        initDrag('drag-q2');
+        initDrag('drag-q4');
+        updateProgress();
+    </script>
+</body>
+</html>

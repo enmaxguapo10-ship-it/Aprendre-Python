@@ -1,0 +1,121 @@
+🧠 1. Defineix el “core” (mínim viable)
+
+No intentis fer-ho tot. Duolingo és enorme.
+
+👉 Fes només:
+
+Lliçons curtes (5–10 preguntes)
+Tipus de preguntes:
+Traducció (text input)
+Selecció múltiple
+Ordenar paraules
+Sistema de vides (errors limitats)
+Progrés per nivells
+
+💡 Amb això ja tens un “mini Duolingo” funcional.
+
+🎮 2. Gamificació (clau perquè enganxi)
+
+Duolingo triomfa per això.
+
+Implementa:
+
+⭐ XP per lliçó
+🔥 Streak (dies seguits)
+❤️ Vides
+🪙 Monedes (opcional)
+
+Exemple simple:
+
+xp += 10;
+if (correct) streak++;
+else lives--;
+🧩 3. Estructura de dades (importantíssim)
+
+Defineix bé el contingut des del principi:
+
+const lessons = [
+  {
+    id: 1,
+    title: "Basics 1",
+    questions: [
+      {
+        type: "translate",
+        question: "Hola",
+        answer: "Hello"
+      },
+      {
+        type: "multiple",
+        question: "Cat = ?",
+        options: ["Perro", "Gato", "Casa"],
+        answer: "Gato"
+      }
+    ]
+  }
+];
+
+💡 Si això està ben fet, pots escalar fàcilment.
+
+🖥️ 4. Frontend (on t’has de centrar)
+
+Com que vols client-side:
+
+Framework recomanat:
+React (molt habitual)
+o Vue si t’agrada més net
+
+Components típics:
+
+LessonScreen
+QuestionCard
+ProgressBar
+LivesDisplay
+ResultFeedback
+🔁 5. Lògica de repetició (important nivell 2)
+
+Duolingo usa “spaced repetition”. Tu pots fer una versió simple:
+
+Si falles → torna a sortir més sovint
+Si encertes → apareix menys
+
+Exemple:
+
+if (!correct) queue.push(question);
+🎨 6. UI/UX (aquí es nota molt)
+
+Coses clau:
+
+Botons grans
+Feedback immediat (verd/vermell)
+Animacions ràpides
+Progrés visible sempre
+
+💡 Si la UI és bona, sembla molt més “pro” del que és.
+
+🔊 7. Extra que marca diferència
+
+Si vols pujar nivell:
+
+Text-to-speech (API del navegador)
+Sons (correcte/error)
+Dark mode
+Login amb localStorage (o Firebase si vols)
+🧱 8. Arquitectura simple (indie-friendly)
+
+Sense backend complex:
+
+Estat global (Context / Zustand)
+Dades en JSON
+Progrés en localStorage
+🚀 Stack recomanat
+React + Vite
+CSS simple o Tailwind
+localStorage
+(opcional) Firebase després
+🧠 Consell important
+
+No copiïs Duolingo → copia el seu loop d’addicció:
+
+👉 pregunta → resposta → feedback → recompensa → següent
+
+Si això funciona fluid, el projecte ja “se sent” com Duolingo.

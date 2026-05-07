@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <title>PyBites — L8: Diccionarios</title>
+</head>
+<body>
+
+    <!-- ══ HEADER ═══════════════════════════════════════════ -->
+    <header>
+        <a href="../index.html" class="logo">
+            <div class="logo-icon">🐍</div>
+            <span class="logo-text">Py<span>Bites</span></span>
+        </a>
+        <div class="lesson-header-center">
+            <div class="lesson-progress-bar">
+                <div class="lesson-progress-fill" id="progressFill"></div>
+            </div>
+            <span class="lesson-progress-label" id="progressLabel">0 / 5</span>
+        </div>
+        <div class="header-right">
+            <div class="xp-badge">⚡ 340 XP</div>
+            <div class="streak-badge">🔥 7</div>
+            <div class="avatar">😎</div>
+        </div>
+    </header>
+
+    <!-- ══ LESSON CONTAINER ══════════════════════════════════ -->
+    <main class="lesson-main" id="lessonMain">
+
+        <!-- Slide 1 -->
+        <div class="lesson-card" id="card-s1">
+            <div class="card-emoji">📖</div>
+            <h1 class="card-heading">¿Qué es un Diccionario?</h1>
+            <p class="card-body">Un <strong>diccionario</strong> almacena pares <strong>clave: valor</strong>. Se escribe entre llaves: <strong>{"nombre": "Ana", "edad": 25}</strong>. Accedes a los valores por su clave, no por un índice. Son perfectos para representar objetos del mundo real.</p>
+            <div class="card-fact">
+                <span class="fact-label">💡 Dato clave</span>
+                Los diccionarios son <strong>mutables</strong> y desde Python 3.7 mantienen el <strong>orden de inserción</strong> de las claves.
+            </div>
+            <button class="btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="lesson-card hidden" id="card-s2">
+            <div class="card-emoji">🔑</div>
+            <h1 class="card-heading">Operaciones básicas</h1>
+            <p class="card-body">Accede con <strong>dic["clave"]</strong> o <strong>dic.get("clave")</strong>. Añade o modifica con <strong>dic["nueva"] = valor</strong>. Elimina con <strong>del dic["clave"]</strong>. Comprueba si existe con <strong>"clave" in dic</strong>.</p>
+            <div class="card-fact">
+                <span class="fact-label">🛡️ .get() vs []</span>
+                <strong>dic.get("clave", "default")</strong> nunca da error si la clave no existe — devuelve el valor por defecto.
+            </div>
+            <button class="btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="lesson-card hidden" id="card-s3">
+            <div class="card-emoji">🔄</div>
+            <h1 class="card-heading">Recorrer Diccionarios</h1>
+            <p class="card-body">Usa <strong>.keys()</strong> para obtener las claves, <strong>.values()</strong> para los valores, y <strong>.items()</strong> para ambos a la vez. Con <strong>for clave, valor in dic.items():</strong> puedes recorrer todo el diccionario de forma elegante.</p>
+            <div class="card-fact">
+                <span class="fact-label">⚡ Dict comprehension</span>
+                <strong>{k: v*2 for k, v in dic.items()}</strong> crea un nuevo diccionario modificando los valores — ¡muy pythónico!
+            </div>
+            <button class="btn-primary" onclick="nextStep()">¡A practicar! 💪</button>
+        </div>
+
+        <!-- Q1: opción múltiple -->
+        <div class="lesson-card hidden" id="card-q1">
+            <div class="question-badge">Pregunta 1 de 5</div>
+            <h2 class="card-heading">¿Cómo se crea un diccionario en Python?</h2>
+            <div class="choices" id="choices-q1">
+                <button class="choice-btn" data-value="a" onclick="selectChoice(this,'q1','c')">["nombre": "Ana"]</button>
+                <button class="choice-btn" data-value="b" onclick="selectChoice(this,'q1','c')">("nombre": "Ana")</button>
+                <button class="choice-btn" data-value="c" onclick="selectChoice(this,'q1','c')">{"nombre": "Ana"}</button>
+                <button class="choice-btn" data-value="d" onclick="selectChoice(this,'q1','c')"><"nombre": "Ana"></button>
+            </div>
+            <div class="feedback hidden" id="feedback-q1"></div>
+            <button class="btn-primary hidden" id="next-q1" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Q2: opción múltiple -->
+        <div class="lesson-card hidden" id="card-q2">
+            <div class="question-badge">Pregunta 2 de 5</div>
+            <h2 class="card-heading">¿Qué ventaja tiene .get() sobre [] para acceder a valores?</h2>
+            <div class="choices" id="choices-q2">
+                <button class="choice-btn" data-value="a" onclick="selectChoice(this,'q2','b')">.get() es más rápido</button>
+                <button class="choice-btn" data-value="b" onclick="selectChoice(this,'q2','b')">.get() no da error si la clave no existe</button>
+                <button class="choice-btn" data-value="c" onclick="selectChoice(this,'q2','b')">.get() modifica el valor automáticamente</button>
+                <button class="choice-btn" data-value="d" onclick="selectChoice(this,'q2','b')">No hay diferencia</button>
+            </div>
+            <div class="feedback hidden" id="feedback-q2"></div>
+            <button class="btn-primary hidden" id="next-q2" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Q3: arrastrar -->
+        <div class="lesson-card hidden" id="card-q3">
+            <div class="question-badge">Pregunta 3 de 5</div>
+            <h2 class="card-heading">Ordena estos métodos de diccionario por lo que devuelven:</h2>
+            <p class="card-hint">Arrastra para ordenar</p>
+            <div class="drag-list" id="drag-q3">
+                <div class="drag-item" draggable="true" data-id="dk">🔑 .keys() — solo las claves</div>
+                <div class="drag-item" draggable="true" data-id="dv">📦 .values() — solo los valores</div>
+                <div class="drag-item" draggable="true" data-id="di">🔄 .items() — claves y valores juntos</div>
+                <div class="drag-item" draggable="true" data-id="dg">🛡️ .get() — un valor con seguridad</div>
+            </div>
+            <div class="feedback hidden" id="feedback-q3"></div>
+            <button class="btn-secondary" id="check-q3" onclick="checkDrag('q3', ['dk', 'dv', 'di', 'dg'], this)">
+                Comprobar ✓
+            </button>
+            <button class="btn-primary hidden" id="next-q3" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Q4: opción múltiple -->
+        <div class="lesson-card hidden" id="card-q4">
+            <div class="question-badge">Pregunta 4 de 5</div>
+            <h2 class="card-heading">¿Cómo eliminas la clave 'edad' de un diccionario llamado 'persona'?</h2>
+            <div class="choices" id="choices-q4">
+                <button class="choice-btn" data-value="a" onclick="selectChoice(this,'q4','b')">persona.remove('edad')</button>
+                <button class="choice-btn" data-value="b" onclick="selectChoice(this,'q4','b')">del persona['edad']</button>
+                <button class="choice-btn" data-value="c" onclick="selectChoice(this,'q4','b')">persona.delete('edad')</button>
+                <button class="choice-btn" data-value="d" onclick="selectChoice(this,'q4','b')">persona.pop_key('edad')</button>
+            </div>
+            <div class="feedback hidden" id="feedback-q4"></div>
+            <button class="btn-primary hidden" id="next-q4" onclick="nextStep()">Continuar →</button>
+        </div>
+
+        <!-- Q5: opción múltiple -->
+        <div class="lesson-card hidden" id="card-q5">
+            <div class="question-badge">Pregunta 5 de 5</div>
+            <h2 class="card-heading">¿Cuál es la forma correcta de recorrer claves Y valores a la vez?</h2>
+            <div class="choices" id="choices-q5">
+                <button class="choice-btn" data-value="a" onclick="selectChoice(this,'q5','c')">for k in dic.keys():</button>
+                <button class="choice-btn" data-value="b" onclick="selectChoice(this,'q5','c')">for v in dic.values():</button>
+                <button class="choice-btn" data-value="c" onclick="selectChoice(this,'q5','c')">for k, v in dic.items():</button>
+                <button class="choice-btn" data-value="d" onclick="selectChoice(this,'q5','c')">for k, v in dic:</button>
+            </div>
+            <div class="feedback hidden" id="feedback-q5"></div>
+            <button class="btn-primary hidden" id="next-q5" onclick="finishLesson()">Ver resultados 🏆</button>
+        </div>
+
+        <!-- ── PANTALLA DE RESULTADOS ────────────────────── -->
+        <div class="lesson-card results-card hidden" id="card-results">
+            <div class="results-emoji" id="resultsEmoji">🏆</div>
+            <h2 class="card-heading" id="resultsTitle">¡Lección completada!</h2>
+            <p class="results-score" id="resultsScore"></p>
+            <div class="results-xp" id="resultsXP">+70 XP</div>
+            <p class="results-explanation" id="resultsMsg"></p>
+            <div class="results-actions">
+                <a href="../index.html" class="btn-primary">← Volver al mapa</a>
+                <button class="btn-secondary" onclick="restartLesson()">Repetir lección 🔄</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // ── Steps ────────────────────────────────────────────
+        const steps = ['s1', 's2', 's3', 'q1', 'q2', 'q3', 'q4', 'q5'];
+        const totalQ = 5;
+        let current = 0;
+        let score   = 0;
+
+        // ── Navegación ───────────────────────────────────────
+        function nextStep() {
+            document.getElementById('card-' + steps[current]).classList.add('hidden');
+            current++;
+            if (current < steps.length) {
+                const card = document.getElementById('card-' + steps[current]);
+                card.classList.remove('hidden');
+                card.classList.add('slide-in');
+                setTimeout(() => card.classList.remove('slide-in'), 400);
+            }
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const pct = Math.round((current / (steps.length - 1)) * 100);
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('progressLabel').textContent = current + ' / ' + (steps.length - 1);
+        }
+
+        // ── Preguntas de opción múltiple ────────────────────
+        function selectChoice(btn, qId, correct) {
+            const container = document.getElementById('choices-' + qId);
+            if (container.dataset.answered) return;
+            container.dataset.answered = 'true';
+
+            const isCorrect = btn.dataset.value === correct;
+            if (isCorrect) { score++; btn.classList.add('correct'); }
+            else           { btn.classList.add('wrong'); }
+
+            container.querySelectorAll('.choice-btn').forEach(b => {
+                b.disabled = true;
+                if (b.dataset.value === correct) b.classList.add('correct');
+            });
+
+            showFeedback(qId, isCorrect);
+            document.getElementById('next-' + qId).classList.remove('hidden');
+        }
+
+        function initDrag(listId) {
+            const list = document.getElementById(listId);
+            let dragged = null;
+
+            list.addEventListener('dragstart', (e) => {
+                if (!e.target.classList.contains('drag-item')) return;
+                dragged = e.target;
+                e.target.classList.add('dragging');
+            });
+            list.addEventListener('dragend', (e) => {
+                if (!e.target.classList.contains('drag-item')) return;
+                e.target.classList.remove('dragging');
+                dragged = null;
+            });
+            list.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                if (!dragged) return;
+                const afterElement = getDragAfterElement(list, e.clientY);
+                if (afterElement == null) list.appendChild(dragged);
+                else list.insertBefore(dragged, afterElement);
+            });
+        }
+
+        function getDragAfterElement(container, y) {
+            const items = [...container.querySelectorAll('.drag-item:not(.dragging)')];
+            let closest = { offset: Number.NEGATIVE_INFINITY, element: null };
+            for (const child of items) {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) closest = { offset, element: child };
+            }
+            return closest.element;
+        }
+
+        function checkDrag(qId, correctOrder, btn) {
+            const list = document.getElementById('drag-' + qId);
+            const items = [...list.querySelectorAll('.drag-item')];
+            const current_order = items.map(i => i.dataset.id);
+            const isCorrect = JSON.stringify(current_order) === JSON.stringify(correctOrder);
+
+            if (isCorrect) { score++; items.forEach(i => i.classList.add('drag-correct')); }
+            else           { items.forEach(i => i.classList.add('drag-wrong')); }
+
+            items.forEach(i => i.draggable = false);
+            list.style.pointerEvents = 'none';
+            showFeedback(qId, isCorrect);
+
+            btn.textContent = "Continuar →";
+            btn.classList.remove("btn-secondary");
+            btn.classList.add("btn-primary");
+            btn.onclick = () => nextStep();
+        }
+
+        function showFeedback(qId, isCorrect) {
+            const fb = document.getElementById('feedback-' + qId);
+            fb.classList.remove('hidden');
+            fb.className = 'feedback ' + (isCorrect ? 'feedback-ok' : 'feedback-err');
+            fb.textContent = isCorrect ? '✅ ¡Correcto!' : '❌ No del todo — ¡sigue intentando!';
+        }
+
+        function finishLesson() {
+            document.querySelectorAll('.lesson-card').forEach(c => c.classList.add('hidden'));
+            const card = document.getElementById('card-results');
+            card.classList.remove('hidden');
+
+            const pct = Math.round((score / totalQ) * 100);
+            const xp  = score === totalQ ? 70 : Math.floor(70 * (score / totalQ));
+
+            document.getElementById('resultsEmoji').textContent = pct === 100 ? '🏆' : pct >= 60 ? '🌟' : '💪';
+            document.getElementById('resultsTitle').textContent = pct === 100 ? '¡Perfecto!' : pct >= 60 ? '¡Bien hecho!' : '¡Sigue practicando!';
+            document.getElementById('resultsScore').textContent = score + ' de ' + totalQ + ' respuestas correctas (' + pct + '%)';
+            document.getElementById('resultsXP').textContent    = '+' + xp + ' XP ganados';
+            document.getElementById('resultsMsg').textContent   = pct === 100
+                ? '¡Dominas este tema! Estás listo para la siguiente lección.'
+                : 'Cada intento te acerca más a dominar Python. ¡No te rindas!';
+
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('progressLabel').textContent = (steps.length - 1) + ' / ' + (steps.length - 1);
+        }
+
+        function restartLesson() {
+            current = 0; score = 0;
+            document.querySelectorAll('.lesson-card').forEach(c => c.classList.add('hidden'));
+            document.getElementById('card-s1').classList.remove('hidden');
+            document.querySelectorAll('.choice-btn').forEach(b => {
+                b.classList.remove('correct','wrong'); b.disabled = false;
+            });
+            document.querySelectorAll('.drag-item').forEach(i => {
+                i.classList.remove('drag-correct','drag-wrong'); i.draggable = true;
+            });
+            document.querySelectorAll('[data-answered]').forEach(el => delete el.dataset.answered);
+            document.querySelectorAll('.feedback').forEach(f => f.classList.add('hidden'));
+            document.querySelectorAll('[id^="next-"]').forEach(b => b.classList.add('hidden'));
+            updateProgress();
+        }
+
+        // ── Init ────────────────────────────────────────────
+                initDrag('drag-q3');
+        updateProgress();
+    </script>
+</body>
+</html>
